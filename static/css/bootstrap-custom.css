@@ -1,0 +1,42 @@
+@media (min-width: 992px) {
+    .container {
+        width: 1000px;
+    }
+}
+
+.navbar-default {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-width: 0;
+    font-size: 18px;
+    font-weight: bold;
+    position: absolute;
+    width: 100%;
+}
+
+.navbar-brand {
+    height: 80px;
+    padding: 22px 65px;
+    line-height: 20px;
+    color: #000;
+}
+
+#logo-cn {
+    font-size: 19px;
+}
+
+#logo-en {
+    font-size: 13px;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: #fff;
+    background-color: #ff7200;
+}
+
+.navbar-nav>li>a {
+    line-height: 50px;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #000;
+}

@@ -6,7 +6,6 @@ body{
 }
 
 body{
-    background-color: #fafafa;
         animation: fadein 0.9s ease-out;
    -moz-animation: fadein 0.9s ease-out; /* Firefox */
 -webkit-animation: fadein 0.9s ease-out;  /* Safari 和 Chrome */

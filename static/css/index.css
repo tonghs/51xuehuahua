@@ -1,0 +1,29 @@
+.banner {
+    background-image: url(http://oc06pejhd.bkt.clouddn.com/banner.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 573px;
+}
+
+.banner .title {
+    font-size: 40px;
+    letter-spacing: 10px;
+    margin-top: 200px;
+}
+
+.banner .sub-title {
+    font-size: 32px;
+    font-weight: bold;
+    padding-top:10px;
+}
+
+.banner .sub-title .old-price{
+    text-decoration: line-through;
+    color: #aaa;
+}
+
+.banner .sub-title .now-price{
+    color: #000;
+    font-weight: bold;
+}

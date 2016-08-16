@@ -1,9 +1,33 @@
 <%inherit file="_base.html"/>
 <%block name="css">
     <link rel="stylesheet" href="${load_css('index.css')}">
+    <link rel="stylesheet" href="${load_css('unslider/unslider-dots.css')}">
+    <link rel="stylesheet" href="${load_css('unslider/unslider.css')}">
 </%block>
-这里是首页
-<b>这里是首页</b>
+<div class="main-slider">
+    <ul>
+        <li>
+            <div class="banner">
+                <div class="container">
+                    <div class="title">
+                        冲刺美院精品课程
+                    </div>
+                    <div class="sub-title">
+                        <span class="old-price">原价￥598</span>&nbsp;<span class="now-price">现价￥398</span>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="banner">
+                <div class="container">
+                    冲刺美院精品课程
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
 <%block name="js">
+    <script src="${load_js('unslider-min.js')}"></script>
     <script src="${load_js('index.js')}"></script>
 </%block>
