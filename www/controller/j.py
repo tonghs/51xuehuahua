@@ -2,19 +2,10 @@
 # -*- coding: utf-8 -*-
 
 import json
-import hashlib
-import math
 
 from _base import JsonBaseHandler
 from misc._route import route
-
-from model._base import db
-from model.url import URL as URL_
-from model.cata import Cata as Cata_
 from model.user import User
-from model.mod_log import ModLog
-
-from service.service import export_report
 
 
 @route('/j/login')

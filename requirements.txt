@@ -2,5 +2,3 @@ tornado==4.3
 peewee
 MySQL-python
 mako
-requests
-pypinyin

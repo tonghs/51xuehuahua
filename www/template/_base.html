@@ -10,7 +10,7 @@
             <%block name="title">${APP}</%block>
         </title>
 
-        <link rel="stylesheet" href="${load_css('bootstrap-3.3.5-dist/bootstrap.min.css')}">
+        <link rel="stylesheet" href="${load_css('bootstrap-3.3.5/bootstrap.min.css')}">
         <link rel="stylesheet" href="${load_css('base.css')}">
         <%block name="css">
         </%block>
@@ -21,8 +21,15 @@
             ${next.body()}
 
             <script src="${load_js('jquery-2.2.3.min.js')}"></script>
-            <script src="${load_js('bootstrap-3.3.5-dist/bootstrap.min.js')}"></script>
+            <script src="${load_js('bootstrap-3.3.5/bootstrap.min.js')}"></script>
             <script src="${load_js('base.js')}"></script>
+            <script type="text/javascript" src="//youzikuwebfont.oss-cn-beijing.aliyuncs.com/api.lib.min.js"></script>
+            <script type="text/javascript">
+            $youzikuapi.asyncLoad("//api.youziku.com/webfont/FastJS/yzk_F111F1F39D2ABFF4", function() {
+                $youziku.load("body", "32779782-0c2b-4afc-ada2-f434e094f9c5", "Source-Han-Light");
+                $youziku.draw();
+                })
+            </script>
             <%block name="js">
             </%block>
         </div>

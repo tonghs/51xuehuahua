@@ -1,5 +1,5 @@
 $.extend({
-    app: angular.module('app', ['ngRoute'])
+    # app: angular.module('app', ['ngRoute'])
 
     tip: (msg)->
         $('#msg').attr('class', 'alert alert-info')

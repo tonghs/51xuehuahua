@@ -7,6 +7,7 @@ __pycache__/
 *.so
 *.csv
 .*.swp
+config.py
 
 # Distribution / packaging
 .Python
