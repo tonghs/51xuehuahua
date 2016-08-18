@@ -27,3 +27,39 @@
     color: #000;
     font-weight: bold;
 }
+
+.banner .teacher {
+    margin-top: 20px;
+}
+
+.banner .teacher .avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 21px;
+    background-position: 18px center;
+    background: url(http://oc06pejhd.bkt.clouddn.com/icon/teacher.png);
+    background-position: -15px 0;
+    background-repeat: no-repeat;
+    float: left;
+}
+
+.banner .teacher .summary{
+    line-height: 42px;
+    margin-left: 9px;
+}
+
+.banner .btn-wrapper {
+    margin-top: 45px;
+}
+
+.banner .btn-wrapper .btn{
+    border-radius: 3px;
+    padding: 14px 92px;
+    font-size: 20px;
+    outline: none;
+}
+
+.banner .btn-wrapper .btn span.glyphicon {
+    font-size: 15px;
+    line-height: 15px;
+}

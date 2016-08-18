@@ -59,6 +59,14 @@ a:hover{
     line-height: 18px;
 }
 
+.key-vision {
+    color: #ff7200;
+}
+
+.key-vision-bg {
+    background-color: #ff7200;
+}
+
 /********* animation *******/
 @keyframes fadein {
     from {
