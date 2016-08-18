@@ -1,0 +1,61 @@
+#cart {
+    display: block;
+    background: url(http://oc06pejhd.bkt.clouddn.com/icon/cart.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 23px auto;
+    width: 23px;
+    line-height: 23px;
+    margin-right: 18px;
+}
+
+#cart-count {
+    border-radius: 12px;
+    position: absolute;
+    top: 21px;
+    right: 13px;
+    background: #ff7200;
+    color: #fff;
+    text-align: center;
+    font-size: 9px;
+    -webkit-transform: scale(0.75);
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+}
+
+#new {
+    position: absolute;
+    background: #ff7200;
+    color: #fff;
+    padding: 1px 4px;
+    right: -11px;
+    top: 10px;
+    font-size: 10px;
+    -webkit-transform: scale(0.81);
+    border-radius: 2px;
+    font-weight: bold;
+}
+
+#triangle {
+    border: 3px solid #fff;
+    border-top-color: #ff7200;
+    width: 3px;
+    height: 3px;
+    position: absolute;
+    right: 10px;
+    top: 27px;
+}
+
+@media (max-width: 768px) {
+    #new {
+        right: initial;
+        left: 91px;
+        top: 5px;
+    }
+    #triangle {
+        right: initial;
+        top: 22px;
+        left: 99px;
+    }
+}
