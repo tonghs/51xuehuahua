@@ -44,6 +44,7 @@
     float: left;
 }
 
+
 .banner .teacher .summary{
     line-height: 42px;
     margin-left: 9px;
@@ -74,6 +75,7 @@
 .section .title a.more{
     font-size: 14px;
     float: right;
+    padding-top: 11px;
 }
 
 .section .title a.more span.glyphicon{
@@ -90,12 +92,6 @@
     font-size: 30px;
     font-weight: bold;
     padding-bottom: 12px;
-}
-
-@media (max-width: 768px) {
-    .footer-service .title {
-        padding-bottom: 2px;
-    }
 }
 
 .footer-service .desc {
@@ -115,11 +111,8 @@
     margin-top: 50px;
 }
 
-.item .img {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 270px;
+.item img {
+    max-width: 100%;
 }
 
 .item {
@@ -144,3 +137,34 @@
 .item .teacher {
     font-size: 14px;
 }
+
+@media (max-width: 768px) {
+    .banner .title {
+        font-size: 35px;
+        letter-spacing: 3px;
+        margin-top: 165px;
+    }
+    .banner .sub-title {
+        font-size: 24px;
+        font-weight: bold;
+        padding-top:10px;
+    }
+    .banner .teacher {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .footer-service .title {
+        padding-bottom: 2px;
+    }
+
+    .banner .teacher, .banner .sub-title, .banner .title, .item .title, .item .teacher, .section .title {
+        padding: 0 15px;
+    }
+
+    .footer-service {
+        background-color: #eee;
+        padding: 45px 15px 20px;
+    }
+}
+
