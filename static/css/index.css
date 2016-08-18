@@ -63,3 +63,53 @@
     font-size: 15px;
     line-height: 15px;
 }
+
+.section .title {
+    font-size: 24px;
+    color: #333;
+    margin-top: 24px;
+}
+
+.section .title a.more{
+    font-size: 14px;
+    float: right;
+}
+
+.section .title a.more span.glyphicon{
+    font-size: 9px;
+    -webkit-transform: scale(0.75);
+}
+
+.footer-service {
+    background-color: #eee;
+    padding: 45px 0 20px;
+}
+
+.footer-service .title {
+    font-size: 30px;
+    font-weight: bold;
+    padding-bottom: 12px;
+}
+
+@media (max-width: 768px) {
+    .footer-service .title {
+        padding-bottom: 2px;
+    }
+}
+
+.footer-service .desc {
+    color: #666;
+    font-size: 13px;
+    line-height: 1.6;
+    font-weight: bold;
+    padding-bottom: 25px;
+}
+
+.pre-footer {
+    background-image: url(http://oc06pejhd.bkt.clouddn.com/pre-footer.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 262px;
+    margin-top: 50px;
+}

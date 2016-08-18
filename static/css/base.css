@@ -67,6 +67,33 @@ a:hover{
     background-color: #ff7200;
 }
 
+
+.footer {
+    color: #fff;
+    line-height: 100px;
+}
+
+.footer .copyright {
+    color: #ffaf85;
+    font-weight: bold;
+}
+
+.footer .content a{
+    font-size: 13px;
+    font-weight: bold;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        color: #fff;
+        line-height: 30px;
+    }
+    .footer .content {
+        text-align: left !important;
+    }
+}
+
 /********* animation *******/
 @keyframes fadein {
     from {
