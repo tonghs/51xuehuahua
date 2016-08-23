@@ -19,6 +19,12 @@ class Index(BaseHandler):
         self.render()
 
 
+@route('/course')
+class Course(BaseHandler):
+    def get(self):
+        self.render()
+
+
 @route('/logout')
 class Logout(LoginHandler):
     def get(self):

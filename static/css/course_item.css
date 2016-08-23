@@ -1,0 +1,50 @@
+.item img {
+    max-width: 100%;
+}
+
+.item {
+    margin-bottom: 40px;
+}
+
+.item .title {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.item .title button {
+    font-weight: bold;
+    padding: 2px 5px;
+    font-size: 13px;
+    border-radius: 2px;
+    margin-top: -3px;
+}
+
+.item .teacher {
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .item .title, .item .teacher {
+        padding: 0 15px;
+    }
+}
+
+.section .title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+.section .title a.more{
+    font-size: 14px;
+    float: right;
+    padding-top: 11px;
+}
+
+.section .title a.more span.glyphicon{
+    font-size: 9px;
+    -webkit-transform: scale(0.75);
+}
+

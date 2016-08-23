@@ -1,3 +1,7 @@
+.navbar-default {
+    position: absolute;
+}
+
 .banner {
     background-image: url(http://oc06pejhd.bkt.clouddn.com/banner.png);
     background-repeat: no-repeat;
@@ -66,23 +70,6 @@
     line-height: 15px;
 }
 
-.section .title {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 12px;
-}
-
-.section .title a.more{
-    font-size: 14px;
-    float: right;
-    padding-top: 11px;
-}
-
-.section .title a.more span.glyphicon{
-    font-size: 9px;
-    -webkit-transform: scale(0.75);
-}
-
 .footer-service {
     background-color: #eee;
     padding: 45px 0 20px;
@@ -111,31 +98,21 @@
     margin-top: 50px;
 }
 
-.item img {
-    max-width: 100%;
+.footer {
+    color: #fff;
+    line-height: 100px;
+    background-color: #ff7200;
 }
 
-.item {
-    margin-bottom: 40px;
-}
-
-.item .title {
-    margin-top: 20px;
-    font-size: 18px;
+.footer .copyright {
+    color: #ffaf85;
     font-weight: bold;
-    margin-bottom: 4px;
 }
 
-.item .title button {
-    font-weight: bold;
-    padding: 2px 5px;
+.footer .content a{
     font-size: 13px;
-    border-radius: 2px;
-    margin-top: -3px;
-}
-
-.item .teacher {
-    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
 }
 
 @media (max-width: 768px) {
@@ -159,7 +136,7 @@
     }
 
     .banner .teacher, .banner .sub-title, .banner .title,
-     .item .title, .item .teacher, .section .title, .nav>li {
+    .section .title, .nav>li {
         padding: 0 15px;
     }
 
@@ -169,6 +146,14 @@
     }
     .pre-footer, .navbar-right {
         display: none;
+    }
+    .footer {
+        color: #fff;
+        line-height: 30px;
+        padding: 15px;
+    }
+    .footer .content {
+        text-align: left !important;
     }
 }
 

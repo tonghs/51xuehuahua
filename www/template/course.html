@@ -1,0 +1,114 @@
+<%inherit file="_base.html"/>
+<%block name="css">
+    <link rel="stylesheet" href="${load_css('header.css')}">
+    <link rel="stylesheet" href="${load_css('fonts/font-awesome.min.css')}">
+    <link rel="stylesheet" href="${load_css('course_item.css')}">
+    <link rel="stylesheet" href="${load_css('course.css')}">
+</%block>
+<div id="filter">
+    <div class="container">
+        <ul>
+            <li style="padding-left: 0;">
+                <div class="cat-level-1">
+                    <a href="" class="cat-name">素描</a> &gt;&gt;
+                </div>
+                <div class="cat-level-2">
+                    <a href="">素描几何体</a> ·
+                    <a href="">素描静物</a> ·
+                    <a href="">素描头像</a> ·
+                    <a href="" class="active">素描半身像</a> ·
+                    <a href="">石膏头像</a>
+                </div>
+            </li>
+            <li>
+                <div class="cat-level-1">
+                    <a href="" class="cat-name">色彩</a> &gt;&gt;
+                </div>
+                <div class="cat-level-2">
+                    <a href="">油画头像</a> ·
+                    <a href="">水粉头像</a> ·
+                    <a href="">色彩静物</a>
+                </div>
+            </li>
+            <li>
+                <div class="cat-level-1">
+                    <a href="" class="cat-name">速写</a> &gt;&gt;
+                </div>
+                <div class="cat-level-2">
+                    <a href="">人物速写</a> ·
+                    <a href="">场景速写</a>
+                </div>
+            </li>
+        </ul>
+        <div id="clear-wrapper">
+            <a href="" id="clear">清除筛选条件</a>&nbsp;<i class="fa fa-times-circle" aria-hidden="true"></i>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="section">
+        <div class="title">
+            全部课程<span id="crumb"> &gt;&gt; 素描半身像</span>
+        </div>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="item">
+                        <img title="" src="http://oc06pejhd.bkt.clouddn.com/sample1.png">
+                        <div class="title">
+                            静物结构素描 · 单体素描
+                            <button type="button" class="btn btn-primary btn-sm">5课时</button>
+                        </div>
+                        <div class="teacher">
+                            <b class="key-vision">樊杙</b> · 中央美术学院 · 版画系 · 现任李靖画室讲师
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="item">
+                        <img title="" src="http://oc06pejhd.bkt.clouddn.com/sample2.png">
+                        <div class="title">
+                            静物结构素描 · 单体素描
+                            <button type="button" class="btn btn-primary btn-sm">5课时</button>
+                        </div>
+                        <div class="teacher">
+                            <b class="key-vision">樊杙</b> · 中央美术学院 · 版画系 · 现任李靖画室讲师
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="item">
+                        <img title="" src="http://oc06pejhd.bkt.clouddn.com/sample1.png">
+                        <div class="title">
+                            静物结构素描 · 单体素描
+                            <button type="button" class="btn btn-primary btn-sm">5课时</button>
+                        </div>
+                        <div class="teacher">
+                            <b class="key-vision">樊杙</b> · 中央美术学院 · 版画系 · 现任李靖画室讲师
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="item">
+                        <img title="" src="http://oc06pejhd.bkt.clouddn.com/sample2.png">
+                        <div class="title">
+                            静物结构素描 · 单体素描
+                            <button type="button" class="btn btn-primary btn-sm">5课时</button>
+                        </div>
+                        <div class="teacher">
+                            <b class="key-vision">樊杙</b> · 中央美术学院 · 版画系 · 现任李靖画室讲师
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="more-wrapper">
+            <button id="btn-more" class="btn btn-primary btn-lg" href="/course/1"><b>加载更多</b></button>
+        </div>
+    </div>
+</div>
+<%block name="js">
+    <script src="${load_js('course.js')}"></script>
+</%block>

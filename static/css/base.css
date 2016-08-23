@@ -71,17 +71,18 @@ a:hover{
 .footer {
     color: #fff;
     line-height: 100px;
+    background-color: #eee;
 }
 
 .footer .copyright {
-    color: #ffaf85;
+    color: #aaa;
     font-weight: bold;
 }
 
 .footer .content a{
     font-size: 13px;
     font-weight: bold;
-    color: #fff;
+    color: #333;
 }
 
 @media (max-width: 768px) {
