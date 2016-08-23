@@ -9,6 +9,11 @@
     font-size: 18px;
     font-weight: bold;
     width: 100%;
+            backdrop-filter: blur(1px);
+         -o-backdrop-filter: blur(1px);
+        -ms-backdrop-filter: blur(1px);
+       -moz-backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
 }
 
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
