@@ -25,12 +25,6 @@
     font-size: 14px;
 }
 
-@media (max-width: 768px) {
-    .item .title, .item .teacher {
-        padding: 0 15px;
-    }
-}
-
 .section .title {
     font-size: 24px;
     color: #333;
@@ -46,5 +40,14 @@
 .section .title a.more span.glyphicon{
     font-size: 9px;
     -webkit-transform: scale(0.75);
+}
+
+@media (max-width: 768px) {
+    .item .title, .item .teacher {
+        padding: 0 15px;
+    }
+    .section .title {
+        padding-left: 15px;
+    }
 }
 

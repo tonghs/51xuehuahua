@@ -33,6 +33,10 @@
     padding-left: 50px;
 }
 
+#filter ul li.fisrt {
+    padding-left: 0;
+}
+
 #filter ul li .cat-level-1 .cat-name {
     font-size: 18px;
     color: #000;
@@ -57,4 +61,25 @@
 
 #filter #clear-wrapper #clear {
     color: #3f51b5;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    #filter {
+        padding: 15px 0;
+    }
+
+    #filter ul li, #filter ul li.fisrt {
+        float: inherit;
+        padding-left: 15px;
+        margin-top: 15px;
+    }
+
+    #filter ul li.fisrt  {
+        margin-top: 0;
+    }
+
+    #filter #clear-wrapper {
+        padding-right: 15px;
+    }
 }
