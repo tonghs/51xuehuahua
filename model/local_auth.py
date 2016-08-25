@@ -4,7 +4,7 @@
 import hashlib
 from model._base import Base
 from model.user import User
-from peevww import CharField, PrimaryKeyField, TimeField
+from peewee import CharField, PrimaryKeyField, TimeField
 
 from form.local_auth import LocalAuthForm
 
@@ -17,6 +17,7 @@ class LocalAuth(Base):
 
     class Meta:
         indexes = ((('user_name', 'password'), True),)
+        db_table = 'local_auth'
 
     @classmethod
     def login(cls, user_name, password):

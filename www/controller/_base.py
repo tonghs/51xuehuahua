@@ -73,7 +73,7 @@ class BaseHandler(tornado.web.RequestHandler):
 
     @property
     def arguments(self):
-        return json.loads(self.request.body)
+        return {k: self.get_argument(k) for k, v in self.request.arguments.iteritems()}
 
 
 class LoginHandler(BaseHandler):
@@ -96,3 +96,7 @@ class JsonBaseHandler(tornado.web.RequestHandler):
 
             self.set_header('Content-Type', 'application/json; charset=UTF-8')
         super(JsonBaseHandler, self).finish(data)
+
+    @property
+    def arguments(self):
+        return {k: self.get_argument(k) for k, v in self.request.arguments.iteritems()}
