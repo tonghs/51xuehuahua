@@ -71,6 +71,10 @@ class BaseHandler(tornado.web.RequestHandler):
 
         return underline_format
 
+    @property
+    def arguments(self):
+        return json.loads(self.request.body)
+
 
 class LoginHandler(BaseHandler):
     def prepare(self):
