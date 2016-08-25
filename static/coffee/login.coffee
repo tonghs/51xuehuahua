@@ -1,9 +1,9 @@
 $('#btn-login').click ->
-    username = $("input[name='username']").val()
+    user_name = $("input[name='user_name']").val()
     password = $("input[name='password']").val()
-    $.only_ajax({
+    $._ajax({
         url: "/j/login",
-        data: {username: username, password: password}
+        data: {user_name: user_name, password: password}
         success: (r)->
             if r.login
                 window.location.href = '/'

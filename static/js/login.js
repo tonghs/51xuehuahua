@@ -2,13 +2,13 @@
 (function() {
 
   $('#btn-login').click(function() {
-    var password, username;
-    username = $("input[name='username']").val();
+    var password, user_name;
+    user_name = $("input[name='user_name']").val();
     password = $("input[name='password']").val();
-    return $.only_ajax({
+    return $._ajax({
       url: "/j/login",
       data: {
-        username: username,
+        user_name: user_name,
         password: password
       },
       success: function(r) {

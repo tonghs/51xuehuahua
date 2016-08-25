@@ -3,7 +3,21 @@
 <%block name="css">
     <link rel="stylesheet" href="${load_css('login.css')}">
 </%block>
-
+<div class="container">
+    <form>
+        <div class="form-group">
+            <label for="user_name">用户名&nbsp;<span class="error-msg"><span></label>
+            <input type="text" class="form-control" name="user_name" id="user_name" place_holder="请输入用户名"  aria-describedby="inputError2Status">
+        </div>
+        <div class="form-group">
+            <label for="password">密码&nbsp;<span class="error-msg"><span></label>
+            <input type="password" class="form-control" name="password" id="password" place_holder="请输入密码">
+        </div>
+        <div class="form-group">
+            <button type="button" class="btn btn-default" id="btn-login">登录</button>
+        </div>
+    </form>
+</div>
 <%block name="js">
     <script src="${load_js('login.js')}"></script>
 </%block>

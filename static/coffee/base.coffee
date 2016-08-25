@@ -18,14 +18,26 @@ $.extend({
             data: option.data,
             type: option.type or 'POST'
             success: (r)->
-                option.success(r)
+                if r.result
+                    option.success(r)
+                    $('.has-error').each ->
+                        $(this).removeClass('has-error')
+                else
+                    for k, v of r
+                        p = $("##{k}").parent("div")
+                        p.addClass('has-error')
+                        p.children('label').children('.error-msg').html(v[0])
+
+                    if option.fail
+                        option.fail()
 
             fail: ->
-                foption.ail()
+                if option.fail
+                    option.fail()
         })
 })
 
 # 菜单高亮
-$("#navbar>ul>li>a").each ->
+$("#navbar>ul#mian-nav>li>a").each ->
     if $(this).attr('href') == window.location.pathname
         $(this).parent('li').addClass('active')

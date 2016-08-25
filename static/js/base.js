@@ -19,16 +19,34 @@
         data: option.data,
         type: option.type || 'POST',
         success: function(r) {
-          return option.success(r);
+          var k, p, v;
+          if (r.result) {
+            option.success(r);
+            return $('.has-error').each(function() {
+              return $(this).removeClass('has-error');
+            });
+          } else {
+            for (k in r) {
+              v = r[k];
+              p = $("#" + k).parent("div");
+              p.addClass('has-error');
+              p.children('label').children('.error-msg').html(v[0]);
+            }
+            if (option.fail) {
+              return option.fail();
+            }
+          }
         },
         fail: function() {
-          return foption.ail();
+          if (option.fail) {
+            return option.fail();
+          }
         }
       });
     }
   });
 
-  $("#navbar>ul>li>a").each(function() {
+  $("#navbar>ul#mian-nav>li>a").each(function() {
     if ($(this).attr('href') === window.location.pathname) {
       return $(this).parent('li').addClass('active');
     }
