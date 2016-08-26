@@ -8,7 +8,7 @@ import mako.template
 import tornado.web
 from tornado.escape import json_encode
 
-from config import STATIC_HOST, APP
+from config import STATIC_HOST, APP, DEBUG
 from model.user import User
 from model._base import db
 
@@ -53,10 +53,16 @@ class BaseHandler(tornado.web.RequestHandler):
         return User.from_dict(json.loads(j)) if j else None
 
     def load_js(self, src):
-        return '{static_host}/js/{src}'.format(static_host=STATIC_HOST, src=src)
+        if DEBUG:
+            return '/static/js/{src}'.format(src=src)
+        else:
+            return '{static_host}/js/{src}'.format(static_host=STATIC_HOST, src=src)
 
     def load_css(self, src):
-        return '{static_host}/css/{src}'.format(static_host=STATIC_HOST, src=src)
+        if DEBUG:
+            return '/static/css/{src}'.format(src=src)
+        else:
+            return '{static_host}/css/{src}'.format(static_host=STATIC_HOST, src=src)
 
     def _camel_to_underline(self, camel_format):
         ''' 驼峰命名格式转下划线命名格式

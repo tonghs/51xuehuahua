@@ -8,6 +8,9 @@ __pycache__/
 *.csv
 .*.swp
 config.py
+gulpfile.js
+node_modules
+static/dist
 
 # Distribution / packaging
 .Python
