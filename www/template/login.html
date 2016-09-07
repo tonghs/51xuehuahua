@@ -29,18 +29,42 @@
             <form>
                 <div class="form-group">
                     <div class="input">
-                        <input type="text" class="form-control" name="user_name" id="user_name" place_holder="请输入用户名"  aria-describedby="inputError2Status">
+                        <span class="glyphicon glyphicon-user icon-user"></span>
+                        <input type="text" class="form-control" name="user_name" id="user_name" placeholder="手机号码/用户名"  aria-describedby="inputError2Status">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="input">
-                        <input type="password" class="form-control" name="password" id="password" place_holder="请输入密码">
+                        <i class="fa fa-key icon-user" aria-hidden="true"></i>
+                        <input type="password" class="form-control" name="password" id="password" placeholder="密码">
                     </div>
                 </div>
                 <div class="form-group">
-                    <button type="button" class="btn btn-default" id="btn-login">登录</button>
+                    <button type="button" class="btn btn-default" id="btn-login">登 录</button>
+                </div>
+                <div>
+                    <span id="remember-me">
+                        <input type="checkbox"> 下次自动登录
+                    </span>
+                    <span id="forget">
+                        <a href="">忘记密码?</a>
+                    </span>
                 </div>
             </form>
+            <div class="fn-clear-f"></div>
+            <hr>
+
+            <div id="oauth-title">
+                合作网站登录
+            </div>
+            <div id="oauth-wrapper">
+                <a href="">
+                    <img src="http://oc06pejhd.bkt.clouddn.com/oauth-qq.png" title="QQ 登录">
+                </a>
+                <a href="">
+                    <img src="http://oc06pejhd.bkt.clouddn.com/oauth-weibo.png" title="微博登录">
+                </a>
+            </div>
         </div>
     </div>
 </div>

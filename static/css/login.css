@@ -13,7 +13,6 @@
 
 #login-section {
     width: 424px;
-    height: 438px;
     margin: auto;
     margin-top: 65px;
     background-color: #fff;
@@ -78,23 +77,31 @@
 #login-section #form-wrapper {
     width: 331px;
     margin: auto;
+    padding-top: 30px;
+}
+
+#login-section #form-wrapper .form-group{
+    padding-top: 10px;
 }
 
 .form-group .input {
     background-image: url('http://oc06pejhd.bkt.clouddn.com/input.png');
     background-repeat: no-repeat;
     background-position: center bottom;
-    background-size: 331px auto;
+    background-size: 330px auto;
     padding-bottom: 1px;
     padding: 1px;
     border-top: 0;
-    text-align: center;
+    text-align: right;
 }
 
 .form-group input {
     border: 0;
     outline: none;
     box-shadow: none;
+    display: inline-block;
+    width: 300px;
+    padding: 0 3px;
 }
 
 .form-control:focus {
@@ -103,3 +110,75 @@
     box-shadow: none;
 }
 
+.form-control:active{
+    border: 0;
+    outline: none;
+    box-shadow: none;
+}
+
+.form-control:visited{
+    border: 0;
+    outline: none;
+    box-shadow: none;
+}
+
+.form-control:visited:focus{
+    border: 0;
+    outline: none;
+    box-shadow: none;
+}
+
+.form-group .icon-user {
+    font-size: 16px;
+    top: 4px;
+    color: #ccc;
+}
+
+#btn-login {
+    background-color: #3f51b5;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 10px 0;
+    width: 332px;
+}
+
+#remember-me {
+    font-weight: bold;
+    color: #000;
+    float: left;
+}
+
+#forget {
+    font-weight: bold;
+    color: #000;
+    float: right;
+}
+
+hr {
+    margin-top: 30px;
+    color: #ccc;
+}
+
+#oauth-title {
+    text-align: center;
+    color: #000;
+    font-weight: bold;
+    background-color: #fff;
+    width: 120px;
+    margin: -30px auto 0;
+}
+
+#oauth-wrapper {
+    text-align: center;
+    padding: 18px 0 25px;
+}
+
+#oauth-wrapper a{
+    text-decoration: none;
+}
+
+#oauth-wrapper img{
+    margin: 0 30px;
+}
