@@ -1,23 +1,23 @@
 <%inherit file="_base.html"/>
-<%block name="title">登录 - ${APP}</%block>
+<%block name="title">注册 - ${APP}</%block>
 <%block name="css">
     <link rel="stylesheet" href="${load_css('fonts/font-awesome.min.css')}">
     <link rel="stylesheet" href="${load_css('login-reg.css')}">
-    <link rel="stylesheet" href="${load_css('login.css')}">
+    <link rel="stylesheet" href="${load_css('reg.css')}">
 </%block>
 <div id="content">
     <div id="login-section">
         <div id="header">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="title-wrapper active">
+                    <div class="title-wrapper">
                         <a href="/login" class="title">
                             登录已有账号
                         </a>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="title-wrapper">
+                    <div class="title-wrapper active">
                         <a href="reg" class="title">
                             手机快速注册
                         </a>
@@ -30,28 +30,27 @@
             <form>
                 <div class="form-group">
                     <div class="input">
-                        <span class="glyphicon glyphicon-user icon-user"></span>
-                        <input type="text" class="form-control" name="user_name" id="user_name" placeholder="手机号码/用户名"  aria-describedby="inputError2Status">
+                        <span class="glyphicon glyphicon-phone icon-user"></span>
+                        <input type="text" class="form-control" name="user_name" id="user_name" placeholder="手机号码"  aria-describedby="inputError2Status">
                     </div>
                     <span class="error-msg"> </span>
                 </div>
                 <div class="form-group">
                     <div class="input">
                         <i class="fa fa-key icon-user" aria-hidden="true"></i>
-                        <input type="password" class="form-control" name="password" id="password" placeholder="密码">
+                        <input type="password" class="form-control" name="password" id="password" placeholder="设置密码">
                     </div>
                     <span class="error-msg"> </span>
                 </div>
                 <div class="form-group">
-                    <button type="button" class="btn btn-default btn-login-reg" id="btn-login">登 录</button>
+                    <div class="input">
+                        <span class="glyphicon glyphicon-picture icon-user"></span>
+                        <input type="password" class="form-control" name="password" id="password" placeholder="图形验证码">
+                    </div>
+                    <span class="error-msg"> </span>
                 </div>
-                <div>
-                    <span id="remember-me">
-                        <input type="checkbox"> 下次自动登录
-                    </span>
-                    <span id="forget">
-                        <a href="">忘记密码?</a>
-                    </span>
+                <div class="form-group">
+                    <button type="button" class="btn btn-default btn-login-reg" id="btn-reg">注 册</button>
                 </div>
             </form>
             <div class="fn-clear-f"></div>
@@ -72,5 +71,5 @@
     </div>
 </div>
 <%block name="js">
-    <script src="${load_js('login.js')}"></script>
+    <script src="${load_js('reg.js')}"></script>
 </%block>

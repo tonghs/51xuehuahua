@@ -53,7 +53,12 @@
                             <li>
                                 <a href="cource" class="btn btn-primary">购买课程</a>
                             </li>
-                            <li><a href="/reg">注册账号</a>·<a href="/login">登录</a></li>
+                            % if current_user:
+                                <li><a href="javascript: void(0);">${current_user.name}</a>
+                                ## ·<a href="/logout">退出</a></li>
+                            % else:
+                                <li><a href="/reg">注册账号</a>·<a href="/login">登录</a></li>
+                            % endif
                             <li><div id="right-margin">&nbsp;</div>
                         </ul>
                     </div><!--/.nav-collapse -->

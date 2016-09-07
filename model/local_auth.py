@@ -20,8 +20,12 @@ class LocalAuth(Base):
         db_table = 'local_auth'
 
     @classmethod
+    def exists(cls, user_name):
+        local_auth = LocalAuth.get(LocalAuth.user_name == user_name)
+        return local_auth
+
+    @classmethod
     def login(cls, user_name, password):
-        user = None
         local_auth = LocalAuth.get(LocalAuth.user_name == user_name, LocalAuth.password == hashlib.md5(password).hexdigest())
         user_id = local_auth.user_id
 

@@ -13,6 +13,12 @@ class Login(BaseHandler):
         self.render()
 
 
+@route('/reg')
+class Reg(BaseHandler):
+    def get(self):
+        self.render()
+
+
 @route('/')
 class Index(BaseHandler):
     def get(self):
