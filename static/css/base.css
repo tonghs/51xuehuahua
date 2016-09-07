@@ -1,7 +1,7 @@
 body{
     font-family: "PingFang SC", "Helvetica Neue", "Helvetica", 'Roboto Condensed', 'Microsoft Yahei', "Arial", "Verdana", "sans-serif";
     -webkit-font-smoothing: antialiased;
-    font-weight: 200;
+    font-weight: 400;
     border-radius: 4px;
 }
 
@@ -83,6 +83,25 @@ a:hover{
     font-size: 13px;
     font-weight: bold;
     color: #333;
+}
+
+.form-group.err .input {
+    background-image: url(http://oc06pejhd.bkt.clouddn.com/input-err.png);
+}
+
+.error-msg {
+    display: none;
+    float: left;
+    padding-top: 3px;
+}
+
+.err .error-msg {
+    padding-top: 3px;
+    float: left;
+    display: block;
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
 }
 
 @media (max-width: 768px) {

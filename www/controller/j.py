@@ -16,17 +16,21 @@ class Login(JsonBaseHandler):
 
         form = LocalAuth.Form(**self.arguments)
         if form.validate():
-            local_auth, user = LocalAuth.login(user_name, password)
+            try:
+                local_auth, user = LocalAuth.login(user_name, password)
+                if user:
+                    user_dict = dict(
+                        id=user.id,
+                        name=user.name
+                    )
+                    self.set_secure_cookie("user", json.dumps(user_dict))
+                    result = dict(result=True, msg="")
+                else:
+                    result = dict(result=False, user_name="用户名密码错误")
 
-            if user:
-                user_dict = dict(
-                    user=user,
-                    name=user.name
-                )
-                self.set_secure_cookie("user", json.dumps(user_dict))
-                result = dict(reault=True, msg="")
-            else:
-                result = dict(reault=False, msg="用户名密码错误")
+            except LocalAuth.DoesNotExist:
+                result = dict(result=False, user_name="用户不存在")
+
         else:
             result = form.errors
             result.update(result=False)

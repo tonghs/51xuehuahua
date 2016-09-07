@@ -17,18 +17,22 @@
         data: option.data,
         type: option.type || 'POST',
         success: function(r) {
-          var k, p, v;
+          var k, msg, p, v;
+          $('.err').each(function() {
+            return $(this).removeClass('err');
+          });
           if (r.result) {
-            option.success(r);
-            return $('.has-error').each(function() {
-              return $(this).removeClass('has-error');
-            });
+            return option.success(r);
           } else {
             for (k in r) {
               v = r[k];
-              p = $("#" + k).parent("div");
-              p.addClass('has-error');
-              p.children('label').children('.error-msg').html(v[0]);
+              p = $("#" + k).parent().parent("div.form-group");
+              p.addClass('err');
+              msg = v;
+              if (Array.isArray(v)) {
+                msg = v[0];
+              }
+              p.children('.error-msg').html(msg);
             }
             if (option.fail) {
               return option.fail();

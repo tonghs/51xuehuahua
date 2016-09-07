@@ -5,8 +5,6 @@ $('#btn-login').click ->
         url: "/j/login",
         data: {user_name: user_name, password: password}
         success: (r)->
-            if r.login
+            if r.result
                 window.location.href = '/'
-            else
-                $.alert r.msg
     })

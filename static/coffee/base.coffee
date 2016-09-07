@@ -18,15 +18,20 @@ $.extend({
             data: option.data,
             type: option.type or 'POST'
             success: (r)->
+                $('.err').each ->
+                    $(this).removeClass('err')
+
                 if r.result
                     option.success(r)
-                    $('.has-error').each ->
-                        $(this).removeClass('has-error')
                 else
                     for k, v of r
-                        p = $("##{k}").parent("div")
-                        p.addClass('has-error')
-                        p.children('label').children('.error-msg').html(v[0])
+                        p = $("##{k}").parent().parent("div.form-group")
+                        p.addClass('err')
+
+                        msg = v
+                        if Array.isArray(v)
+                            msg = v[0]
+                        p.children('.error-msg').html(msg)
 
                     if option.fail
                         option.fail()

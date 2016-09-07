@@ -22,16 +22,10 @@ class LocalAuth(Base):
     @classmethod
     def login(cls, user_name, password):
         user = None
-        local_auth = None
-        try:
-            local_auth = LocalAuth.get(LocalAuth.user_name == user_name, LocalAuth.password == hashlib.md5(password).hexdigest())
-            user_id = local_auth.user_id
+        local_auth = LocalAuth.get(LocalAuth.user_name == user_name, LocalAuth.password == hashlib.md5(password).hexdigest())
+        user_id = local_auth.user_id
 
-            user = User.get(User.user_id == user_id)
-
-        except LocalAuth.DoesNotExist:
-            # 用户不存在
-            pass
+        user = User.get(User.id == user_id)
 
         return local_auth, user
 

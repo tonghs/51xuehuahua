@@ -10,10 +10,8 @@
         password: password
       },
       success: function(r) {
-        if (r.login) {
+        if (r.result) {
           return window.location.href = '/';
-        } else {
-          return $.alert(r.msg);
         }
       }
     });

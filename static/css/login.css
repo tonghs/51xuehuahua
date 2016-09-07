@@ -145,13 +145,11 @@
 }
 
 #remember-me {
-    font-weight: bold;
     color: #000;
     float: left;
 }
 
 #forget {
-    font-weight: bold;
     color: #000;
     float: right;
 }
