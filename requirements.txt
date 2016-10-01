@@ -3,3 +3,6 @@ peewee
 MySQL-python
 mako
 WTForms
+captchaimage
+Pillow
+redis

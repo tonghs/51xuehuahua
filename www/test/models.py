@@ -3,7 +3,8 @@
 
 import _env  # noqa
 # from model._base import drop_table, init_db
-from model.user import User
+# from model.user import User
+from model.captcha import Captcha
 from model.local_auth import LocalAuth
 import hashlib
 
@@ -20,5 +21,9 @@ def main():
     LocalAuth.create(**data)
 
 
+def test_captcha():
+    for i in range(10):
+        print Captcha.captcha_new()
+
 if __name__ == '__main__':
-    main()
+    test_captcha()

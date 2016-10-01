@@ -3,11 +3,15 @@
 
 import _env  # noqa
 import hashlib
-from config import MYSQL
+import redis as redis_
+
+from config import MYSQL, REDIS
 from peewee import Model, MySQLDatabase
+
 from playhouse.shortcuts import model_to_dict, dict_to_model
 
 db = MySQLDatabase(MYSQL.DB, user=MYSQL.USER, password=MYSQL.PWD, host=MYSQL.HOST)
+redis = redis_.StrictRedis(host=REDIS.HOST, port=REDIS.PORT, db=REDIS.DB)
 
 
 class Base(Model):
@@ -59,7 +63,15 @@ def drop_table():
 
     db.drop_tables([User, URL, Cata, ModLog])
 
-if __name__ == '__main__':
-    from model.mod_log import ModLog
-    db.create_tables([ModLog])
-    # db.create_tables([User, URL, Cata, ModLog])
+
+class RedisUtil(object):
+    ''' Redis 获取 key
+        根据调用方法名自动生成 key name
+    '''
+    def __getattr__(self, name):
+        def _get_key(param=''):
+            return '{name}{param}'.format(name=name.upper(), param=param)
+
+        return _get_key
+
+R = RedisUtil()

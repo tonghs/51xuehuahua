@@ -14,3 +14,8 @@ class MYSQL:
     USER = 'root'
     PWD = 'pwd'
     DB = 'db_name'
+
+class REDIS:
+    HOST = 'localhost',
+    PORT = 6379,
+    DB = 0

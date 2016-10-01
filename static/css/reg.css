@@ -1,0 +1,12 @@
+#token {
+    width: 195px;
+}
+
+img#captcha {
+    width: 100px;
+    height: 27px;
+    line-height: 27px;
+    padding-right: 15px;
+    margin-bottom: 8px;
+    cursor: pointer;
+}

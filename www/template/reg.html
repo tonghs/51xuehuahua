@@ -45,7 +45,16 @@
                 <div class="form-group">
                     <div class="input">
                         <span class="glyphicon glyphicon-picture icon-user"></span>
-                        <input type="password" class="form-control" name="password" id="password" placeholder="图形验证码">
+                        <input class="form-control" name="token" id="token" placeholder="图形验证码">
+                        <img src="" id="captcha">
+                        <input id="key" type="hidden">
+                    </div>
+                    <span class="error-msg"> </span>
+                </div>
+                <div class="form-group">
+                    <div class="input">
+                        <i class="fa fa-key icon-user" aria-hidden="true"></i>
+                        <input type="password" class="form-control" name="password" id="password" placeholder="动态验证码">
                     </div>
                     <span class="error-msg"> </span>
                 </div>

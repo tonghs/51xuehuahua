@@ -6,6 +6,7 @@ import json
 from _base import JsonBaseHandler
 from misc._route import route
 from model.local_auth import LocalAuth
+from model.captcha import Captcha
 
 
 @route('/j/login')
@@ -37,3 +38,11 @@ class Login(JsonBaseHandler):
             result.update(result=False)
 
         self.finish(result)
+
+
+@route('/j/captcha')
+class Captcha_(JsonBaseHandler):
+    def post(self):
+        key, token, img = Captcha.new()
+
+        self.finish(dict(key=key, img=img))
