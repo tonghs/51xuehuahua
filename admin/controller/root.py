@@ -3,7 +3,7 @@
 
 import _env  # noqa
 
-from _base import BaseHandler, LoginHandler
+from _base import BaseHandler, AdminHandler
 from misc._route import route
 
 
@@ -14,13 +14,13 @@ class Login(BaseHandler):
 
 
 @route('/')
-class Index(LoginHandler):
+class Index(AdminHandler):
     def get(self):
         self.render()
 
 
 @route('/logout')
-class Logout(LoginHandler):
+class Logout(AdminHandler):
     def get(self):
         self.clear_cookie('user')
         self.redirect('/')

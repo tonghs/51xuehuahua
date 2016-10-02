@@ -7,13 +7,13 @@
         <meta name="description" content="无忧学画画">
         <meta name="keywords" content="在线美术教育,美术在线教育,在线教育,美术教育,美术培训,在线培训,线上美术培训,线上美术教育,美术课程培训,在线美术课程,在线美术班,美术,教育,艺术,冲刺高考,北京美术培训,全国美术培训,学画画,画画,在线画画,在线美术,美术考前班,美术高考课程,美术培训班,北京美术培训班,北京最好的美术班,最好的在线教育网站 考前在线教育网站,考前在线教育,考前在线美术教育,考前艺术没训,考前班,考前班美术,考前班画画,免费学画画,最好的画画网站,在线学画画,无忧学画画,无忧美术,在线美术教育,美术在线教育,在线教育,美术教育,美术培训,在线培训,线上美术培训,线上美术教育,美术课程培训,在线美术课程,在线美术班,美术,教育,艺术,冲刺高考,北京美术培训,全国美术培训,学画画,画画,在线画画,在线美术,美术考前班,美术高考课程,美术培训班,北京美术培训班,北京最好的美术班,最好的在线教育网站 考前在线教育网站,考前在线教育,考前在线美术教育,考前艺术没训,考前班,考前班美术,考前班画画,免费学画画,最好的画画网站,在线学画画,无忧学画画,无忧美术"/>
         <title>
-            <%block name="title">${APP}</%block>
+            <%block name="title"></%block>${NAME}
         </title>
 
         <link rel="stylesheet" href="${STATIC.css_('bootstrap-3.3.5/bootstrap.min.css')}">
         <link rel="stylesheet" href="${STATIC.css_('bootstrap-custom.css')}">
         <link rel="stylesheet" href="${STATIC.css_('fonts/font-awesome.min.css')}">
-        <link rel="stylesheet" href="${STATIC.css('base.css')}">
+        <link rel="stylesheet" href="${STATIC.css_('base.css')}">
         <link rel="stylesheet" href="${STATIC.css('header.css')}">
         <%block name="css">
         </%block>
@@ -81,6 +81,7 @@
             </div>
             <script src="${STATIC.js_('jquery-2.2.3.min.js')}"></script>
             <script src="${STATIC.js_('bootstrap-3.3.5/bootstrap.min.js')}"></script>
+            <script src="${STATIC.js_('base.js')}"></script>
             <script src="${STATIC.js('base.js')}"></script>
             <%block name="js">
             </%block>

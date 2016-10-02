@@ -9,7 +9,7 @@ import mako.template
 import tornado.web
 from tornado.escape import json_encode
 
-from config import STATIC_HOST, APP, DEBUG
+from config import STATIC_HOST, APP, DEBUG, NAME
 from model.user import User
 from model._base import db
 
@@ -64,7 +64,7 @@ class BaseHandler(tornado.web.RequestHandler):
         filename = "{0}{1}".format(filename[0].lower(), filename[1:])
         if isinstance(kwargs, dict):
             kwargs.update(STATIC=Static())
-            kwargs.update(APP=APP)
+            kwargs.update(NAME=NAME)
 
         self.finish(self.render_string(filename, **kwargs))
 
