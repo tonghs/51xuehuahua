@@ -1,3 +1,6 @@
+sec = 59
+intval = null
+
 getCaptcha =->
     $.ajax({
         url: '/j/captcha'
@@ -17,10 +20,22 @@ getSmsCode =->
             user_name: $('#user_name').val()
         }
         success: (r)->
-            $('#btn-sms-code').attr('disable', 'true')
+            $('#btn-sms-code').attr('disabled', 'true')
             $('#btn-sms-code').addClass('disabled')
             $('#btn-sms-code').val('已发送(60)')
+            intval = setInterval(countDown, 1000)
     })
+
+countDown = ->
+    if sec == 0
+        clearInterval(intval)
+        $('#btn-sms-code').attr('disabled', 'false')
+        $('#btn-sms-code').removeClass('disabled')
+        $('#btn-sms-code').val('获取动态验证码')
+    else
+        $('#btn-sms-code').val("已发送(#{sec})")
+        sec--
+
 
 
 $(document).ready ->

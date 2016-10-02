@@ -1,5 +1,9 @@
 (function() {
-  var getCaptcha, getSmsCode;
+  var countDown, getCaptcha, getSmsCode, intval, sec;
+
+  sec = 59;
+
+  intval = null;
 
   getCaptcha = function() {
     return $.ajax({
@@ -22,11 +26,24 @@
         user_name: $('#user_name').val()
       },
       success: function(r) {
-        $('#btn-sms-code').attr('disable', 'true');
+        $('#btn-sms-code').attr('disabled', 'true');
         $('#btn-sms-code').addClass('disabled');
-        return $('#btn-sms-code').val('已发送(60)');
+        $('#btn-sms-code').val('已发送(60)');
+        return intval = setInterval(countDown, 1000);
       }
     });
+  };
+
+  countDown = function() {
+    if (sec === 0) {
+      clearInterval(intval);
+      $('#btn-sms-code').attr('disabled', 'false');
+      $('#btn-sms-code').removeClass('disabled');
+      return $('#btn-sms-code').val('获取动态验证码');
+    } else {
+      $('#btn-sms-code').val("已发送(" + sec + ")");
+      return sec--;
+    }
   };
 
   $(document).ready(function() {
