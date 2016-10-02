@@ -1,9 +1,8 @@
 <%inherit file="_base.html"/>
 <%block name="title">登录 - ${APP}</%block>
 <%block name="css">
-    <link rel="stylesheet" href="${load_css('fonts/font-awesome.min.css')}">
-    <link rel="stylesheet" href="${load_css('login-reg.css')}">
-    <link rel="stylesheet" href="${load_css('login.css')}">
+    <link rel="stylesheet" href="${STATIC.css('login-reg.css')}">
+    <link rel="stylesheet" href="${STATIC.css('login.css')}">
 </%block>
 <div id="content">
     <div id="login-section">
@@ -72,5 +71,5 @@
     </div>
 </div>
 <%block name="js">
-    <script src="${load_js('login.js')}"></script>
+    <script src="${STATIC.js('login.js')}"></script>
 </%block>

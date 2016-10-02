@@ -1,9 +1,9 @@
 <%inherit file="_base.html"/>
 <%block name="css">
-    <link rel="stylesheet" href="${load_css('course_item.css')}">
-    <link rel="stylesheet" href="${load_css('index.css')}">
-    <link rel="stylesheet" href="${load_css('unslider/unslider-dots.css')}">
-    <link rel="stylesheet" href="${load_css('unslider/unslider.css')}">
+    <link rel="stylesheet" href="${STATIC.css('course_item.css')}">
+    <link rel="stylesheet" href="${STATIC.css('index.css')}">
+    <link rel="stylesheet" href="${STATIC.css_('unslider/unslider-dots.css')}">
+    <link rel="stylesheet" href="${STATIC.css_('unslider/unslider.css')}">
 </%block>
 <div class="main-slider">
     <ul>
@@ -167,6 +167,6 @@
     &nbsp;
 </div>
 <%block name="js">
-    <script src="${load_js('unslider-min.js')}"></script>
-    <script src="${load_js('index.js')}"></script>
+    <script src="${STATIC.js_('unslider-min.js')}"></script>
+    <script src="${STATIC.js('index.js')}"></script>
 </%block>

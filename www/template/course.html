@@ -1,9 +1,8 @@
 <%inherit file="_base.html"/>
 <%block name="css">
-    <link rel="stylesheet" href="${load_css('header.css')}">
-    <link rel="stylesheet" href="${load_css('fonts/font-awesome.min.css')}">
-    <link rel="stylesheet" href="${load_css('course_item.css')}">
-    <link rel="stylesheet" href="${load_css('course.css')}">
+    <link rel="stylesheet" href="${STATIC.css('header.css')}">
+    <link rel="stylesheet" href="${STATIC.css('course_item.css')}">
+    <link rel="stylesheet" href="${STATIC.css('course.css')}">
 </%block>
 <div id="filter">
     <div class="container">
@@ -110,5 +109,5 @@
     </div>
 </div>
 <%block name="js">
-    <script src="${load_js('course.js')}"></script>
+    <script src="${STATIC.js('course.js')}"></script>
 </%block>

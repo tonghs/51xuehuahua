@@ -1,9 +1,8 @@
 <%inherit file="_base.html"/>
 <%block name="title">注册 - ${APP}</%block>
 <%block name="css">
-    <link rel="stylesheet" href="${load_css('fonts/font-awesome.min.css')}">
-    <link rel="stylesheet" href="${load_css('login-reg.css')}">
-    <link rel="stylesheet" href="${load_css('reg.css')}">
+    <link rel="stylesheet" href="${STATIC.css('login-reg.css')}">
+    <link rel="stylesheet" href="${STATIC.css('reg.css')}">
 </%block>
 <div id="content">
     <div id="login-section">
@@ -81,5 +80,5 @@
     </div>
 </div>
 <%block name="js">
-    <script src="${load_js('reg.js')}"></script>
+    <script src="${STATIC.js('reg.js')}"></script>
 </%block>

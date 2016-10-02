@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 import _env  # noqa
-import hashlib
 import redis as redis_
 
 from config import MYSQL, REDIS

@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import _env # noqa
 import os
 import json
 import mako.lookup
@@ -8,7 +9,7 @@ import mako.template
 import tornado.web
 from tornado.escape import json_encode
 
-from config import STATIC_HOST, APP
+from config import STATIC_HOST, APP, DEBUG
 from model.user import User
 from model._base import db
 
@@ -53,10 +54,16 @@ class BaseHandler(tornado.web.RequestHandler):
         return User.from_dict(json.loads(j)) if j else None
 
     def load_js(self, src):
-        return '{static_host}/js/{src}'.format(static_host=STATIC_HOST, src=src)
+        if DEBUG:
+            return '/static/js/{src}'.format(src=src)
+        else:
+            return '{static_host}/js/{src}'.format(static_host=STATIC_HOST, src=src)
 
     def load_css(self, src):
-        return '{static_host}/css/{src}'.format(static_host=STATIC_HOST, src=src)
+        if DEBUG:
+            return '/static/css/{src}'.format(src=src)
+        else:
+            return '{static_host}/css/{src}'.format(static_host=STATIC_HOST, src=src)
 
     def _camel_to_underline(self, camel_format):
         ''' 驼峰命名格式转下划线命名格式
@@ -70,6 +77,10 @@ class BaseHandler(tornado.web.RequestHandler):
                     underline_format += _s_ if _s_.islower() else '_' + _s_.lower()
 
         return underline_format
+
+    @property
+    def arguments(self):
+        return {k: self.get_argument(k) for k, v in self.request.arguments.iteritems()}
 
 
 class LoginHandler(BaseHandler):
@@ -92,3 +103,7 @@ class JsonBaseHandler(tornado.web.RequestHandler):
 
             self.set_header('Content-Type', 'application/json; charset=UTF-8')
         super(JsonBaseHandler, self).finish(data)
+
+    @property
+    def arguments(self):
+        return {k: self.get_argument(k) for k, v in self.request.arguments.iteritems()}

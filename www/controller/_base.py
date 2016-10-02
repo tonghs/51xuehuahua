@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import _env # noqa
 import os
 import json
 import mako.lookup
@@ -11,6 +12,26 @@ from tornado.escape import json_encode
 from config import STATIC_HOST, APP, DEBUG
 from model.user import User
 from model._base import db
+
+
+class Static(object):
+    def __getattr__(self, name):
+        type_ = name.replace('load_', '')
+        app = APP
+        if type_.endswith('_'):
+            app = ''
+
+        def load(src):
+            return self.load_static(app, type_, src)
+
+        return load
+
+    def load_static(self, app, type_, src):
+        type_ = type_.replace('_', '')
+        if DEBUG:
+            return '/static/{type_}/{app}/{src}'.format(app=app, type_=type_, src=src)
+        else:
+            return '{static_host}/{type_}/{app}/{src}'.format(static_host=STATIC_HOST, type_=type_, app=app, src=src)
 
 
 class BaseHandler(tornado.web.RequestHandler):
@@ -42,8 +63,7 @@ class BaseHandler(tornado.web.RequestHandler):
         filename = "{0}.html".format(self._camel_to_underline(self.__class__.__name__))
         filename = "{0}{1}".format(filename[0].lower(), filename[1:])
         if isinstance(kwargs, dict):
-            kwargs.update(load_js=self.load_js)
-            kwargs.update(load_css=self.load_css)
+            kwargs.update(STATIC=Static())
             kwargs.update(APP=APP)
 
         self.finish(self.render_string(filename, **kwargs))
@@ -51,18 +71,6 @@ class BaseHandler(tornado.web.RequestHandler):
     def get_current_user(self):
         j = self.get_secure_cookie("user")
         return User.from_dict(json.loads(j)) if j else None
-
-    def load_js(self, src):
-        if DEBUG:
-            return '/static/js/{src}'.format(src=src)
-        else:
-            return '{static_host}/js/{src}'.format(static_host=STATIC_HOST, src=src)
-
-    def load_css(self, src):
-        if DEBUG:
-            return '/static/css/{src}'.format(src=src)
-        else:
-            return '{static_host}/css/{src}'.format(static_host=STATIC_HOST, src=src)
 
     def _camel_to_underline(self, camel_format):
         ''' 驼峰命名格式转下划线命名格式

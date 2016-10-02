@@ -10,10 +10,11 @@
             <%block name="title">${APP}</%block>
         </title>
 
-        <link rel="stylesheet" href="${load_css('bootstrap-3.3.5/bootstrap.min.css')}">
-        <link rel="stylesheet" href="${load_css('bootstrap-custom.css')}">
-        <link rel="stylesheet" href="${load_css('base.css')}">
-        <link rel="stylesheet" href="${load_css('header.css')}">
+        <link rel="stylesheet" href="${STATIC.css_('bootstrap-3.3.5/bootstrap.min.css')}">
+        <link rel="stylesheet" href="${STATIC.css_('bootstrap-custom.css')}">
+        <link rel="stylesheet" href="${STATIC.css_('fonts/font-awesome.min.css')}">
+        <link rel="stylesheet" href="${STATIC.css('base.css')}">
+        <link rel="stylesheet" href="${STATIC.css('header.css')}">
         <%block name="css">
         </%block>
     </head>
@@ -55,7 +56,7 @@
                             </li>
                             % if current_user:
                                 <li><a href="javascript: void(0);">${current_user.name}</a>
-                                ## ·<a href="/logout">退出</a></li>
+                                ·<a href="/logout">退出</a></li>
                             % else:
                                 <li><a href="/reg">注册账号</a>·<a href="/login">登录</a></li>
                             % endif
@@ -78,18 +79,9 @@
                 </div>
 
             </div>
-            <script src="${load_js('jquery-2.2.3.min.js')}"></script>
-            <script src="${load_js('bootstrap-3.3.5/bootstrap.min.js')}"></script>
-            <script src="${load_js('base.js')}"></script>
-
-            <script type="text/javascript" src="//youzikuwebfont.oss-cn-beijing.aliyuncs.com/api.lib.min.js"></script>
-            <script type="text/javascript">
-                //$youzikuapi.asyncLoad("//api.youziku.com/webfont/FastJS/yzk_F111F1F39D2ABFF4", function() {
-                //    $youziku.load("body", "35888bd955934149830dcffec3980cd8", "PingFangSC_R");
-                //    $youziku.draw();
-                //});
-            </script>
-
+            <script src="${STATIC.js_('jquery-2.2.3.min.js')}"></script>
+            <script src="${STATIC.js_('bootstrap-3.3.5/bootstrap.min.js')}"></script>
+            <script src="${STATIC.js('base.js')}"></script>
             <%block name="js">
             </%block>
         </div>
