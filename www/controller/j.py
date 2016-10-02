@@ -2,12 +2,15 @@
 # -*- coding: utf-8 -*-
 
 import json
+import hashlib
 
 from _base import JsonBaseHandler
 from misc._route import route
+from model.user import User
 from model.local_auth import LocalAuth
 from model.captcha import Captcha
 from model.sms import SMS
+from form.local_auth import RegForm
 
 
 @route('/j/login')
@@ -54,12 +57,49 @@ class SMSCode(JsonBaseHandler):
     def post(self):
         form = SMS.Form(**self.arguments)
         if form.validate():
-            if Captcha.verify(self.arguments.get('key', ''), self.arguments.get('token', '')):
-                SMS.new(self.arguments.get('user_name', ''))
-                result = dict(result=True)
+            phone = self.arguments.get('user_name', '')
+            try:
+                LocalAuth.exists(phone)
+            except LocalAuth.DoesNotExist:
+                if Captcha.verify(self.arguments.get('key', ''), self.arguments.get('token', '')):
+                    SMS.new(phone)
+                    result = dict(result=True)
+                else:
+                    result = dict(result=False, token="图片验证码错误")
             else:
-                result = dict(result=False, token="图片验证码错误")
+                result = dict(result=False, user_name="手机号码已注册")
         else:
             result = form.errors
             result.update(result=False)
+        self.finish(result)
+
+
+@route('/j/reg')
+class Reg(JsonBaseHandler):
+    def post(self):
+        form = RegForm(**self.arguments)
+        if form.validate():
+            phone = self.arguments.get('user_name')
+
+            # 验证手机验证码
+            if SMS.verify(phone, self.arguments.get('sms_code', '')):
+                try:
+                    LocalAuth.exists(phone)
+                except LocalAuth.DoesNotExist:
+                    user = User(phone=phone)
+                    user.save()
+
+                    LocalAuth.create(user_id=user.id, user_name=phone,
+                                     password=hashlib.md5(self.arguments.get('password')).hexdigest())
+
+                    result = dict(result=True)
+                else:
+                    result = dict(result=False, user_name="手机号码已注册")
+            else:
+                result = dict(result=False, sms_code="验证码错误")
+
+        else:
+            result = form.errors
+            result.update(result=False)
+
         self.finish(result)

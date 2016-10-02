@@ -29,39 +29,17 @@ class Base(Model):
 
 def init_db():
     from model.user import User
-    from model.url import URL
-    from model.cata import Cata
-    from model.mod_log import ModLog
-    from misc.const import d_cata, d_source
+    from model.local_auth import LocalAuth
 
     # 创建表
-    db.create_tables([User, URL, Cata, ModLog])
-
-    # 新建用户
-    data = dict(
-        user="admin",
-        name="admin",
-        pwd=hashlib.md5('admin').hexdigest(),
-    )
-    User.create(**data)
-
-    # 创建交叉表
-    for k in d_cata.keys():
-        for k1 in d_source.keys():
-            d_ = dict(
-                cata=k,
-                source=k1,
-            )
-            Cata.create(**d_)
+    db.create_tables([User, LocalAuth])
 
 
 def drop_table():
     from model.user import User
-    from model.url import URL
-    from model.cata import Cata
-    from model.mod_log import ModLog
+    from model.local_auth import LocalAuth
 
-    db.drop_tables([User, URL, Cata, ModLog])
+    db.drop_tables([User, LocalAuth])
 
 
 class RedisUtil(object):

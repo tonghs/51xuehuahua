@@ -29,13 +29,28 @@ getSmsCode =->
 countDown = ->
     if sec == 0
         clearInterval(intval)
-        $('#btn-sms-code').attr('disabled', 'false')
+        $('#btn-sms-code').removeAttr('disabled')
         $('#btn-sms-code').removeClass('disabled')
         $('#btn-sms-code').val('获取动态验证码')
+        sec = 59
     else
         $('#btn-sms-code').val("已发送(#{sec})")
         sec--
 
+
+$('form').submit (e)->
+    $._ajax({
+        url: '/j/reg'
+        method: 'POST'
+        data: {
+            sms_code: $('#sms_code').val(),
+            user_name: $('#user_name').val()
+            password: $('#password').val()
+        }
+        success: (r)->
+            alert 1
+    })
+    e.preventDefault()
 
 
 $(document).ready ->

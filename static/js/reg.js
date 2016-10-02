@@ -37,14 +37,31 @@
   countDown = function() {
     if (sec === 0) {
       clearInterval(intval);
-      $('#btn-sms-code').attr('disabled', 'false');
+      $('#btn-sms-code').removeAttr('disabled');
       $('#btn-sms-code').removeClass('disabled');
-      return $('#btn-sms-code').val('获取动态验证码');
+      $('#btn-sms-code').val('获取动态验证码');
+      return sec = 59;
     } else {
       $('#btn-sms-code').val("已发送(" + sec + ")");
       return sec--;
     }
   };
+
+  $('form').submit(function(e) {
+    $._ajax({
+      url: '/j/reg',
+      method: 'POST',
+      data: {
+        sms_code: $('#sms_code').val(),
+        user_name: $('#user_name').val(),
+        password: $('#password').val()
+      },
+      success: function(r) {
+        return alert(1);
+      }
+    });
+    return e.preventDefault();
+  });
 
   $(document).ready(function() {
     return getCaptcha();

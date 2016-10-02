@@ -17,6 +17,6 @@ class User(Base):
     gender = IntegerField(default=1)
     avatar = CharField()
     birthday = TimeField()
-    creation_time = IntegerField(default=int(time.time()))
+    created_time = IntegerField(default=int(time.time()))
 
     Form = UserForm

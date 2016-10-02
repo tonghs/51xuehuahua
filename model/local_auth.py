@@ -2,9 +2,10 @@
 # -*- coding: utf-8 -*-
 
 import hashlib
+import time
 from model._base import Base
 from model.user import User
-from peewee import CharField, PrimaryKeyField, TimeField
+from peewee import CharField, PrimaryKeyField, IntegerField
 
 from form.local_auth import LocalAuthForm
 
@@ -13,7 +14,7 @@ class LocalAuth(Base):
     user_id = PrimaryKeyField()
     user_name = CharField()
     password = CharField()
-    creation_time = TimeField()
+    created_time = IntegerField(default=int(time.time()))
 
     class Meta:
         indexes = ((('user_name', 'password'), True),)
