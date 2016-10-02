@@ -1,4 +1,4 @@
-get_captcha =->
+getCaptcha =->
     $.ajax({
         url: '/j/captcha'
         method: 'POST'
@@ -7,19 +7,29 @@ get_captcha =->
             $('#key').val(r.key)
     })
 
-get_sms_code =->
+getSmsCode =->
     $._ajax({
-        url: '/j/captcha'
+        url: '/j/sms_code'
         method: 'POST'
+        data: {
+            token: $('#token').val(),
+            key: $('#key').val(),
+            user_name: $('#user_name').val()
+        }
         success: (r)->
-            $('#captcha').attr('src', "data:image/gif;base64,#{r.img}")
-            $('#key').val(r.key)
+            $('#btn-sms-code').attr('disable', 'true')
+            $('#btn-sms-code').addClass('disabled')
+            $('#btn-sms-code').val('已发送(60)')
     })
 
 
 $(document).ready ->
-    get_captcha()
+    getCaptcha()
 
 $('#captcha').click ->
-    get_captcha()
+    getCaptcha()
+
+
+$('#btn-sms-code').click ->
+    getSmsCode()
 

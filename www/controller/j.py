@@ -7,6 +7,7 @@ from _base import JsonBaseHandler
 from misc._route import route
 from model.local_auth import LocalAuth
 from model.captcha import Captcha
+from model.sms import SMS
 
 
 @route('/j/login')
@@ -46,3 +47,19 @@ class Captcha_(JsonBaseHandler):
         key, token, img = Captcha.new()
 
         self.finish(dict(key=key, img=img))
+
+
+@route('/j/sms_code')
+class SMSCode(JsonBaseHandler):
+    def post(self):
+        form = SMS.Form(**self.arguments)
+        if form.validate():
+            if Captcha.verify(self.arguments.get('key', ''), self.arguments.get('token', '')):
+                SMS.new(self.arguments.get('user_name', ''))
+                result = dict(result=True)
+            else:
+                result = dict(result=False, token="图片验证码错误")
+        else:
+            result = form.errors
+            result.update(result=False)
+        self.finish(result)

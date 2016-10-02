@@ -25,3 +25,8 @@ img#captcha {
     margin-right: 13px;
     margin-bottom: 8px;
 }
+
+#btn-sms-code.disabled {
+    border-color: #ccc;
+    color: #ccc;
+}

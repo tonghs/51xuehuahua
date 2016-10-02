@@ -1,7 +1,7 @@
 (function() {
-  var get_captcha, get_sms_code;
+  var getCaptcha, getSmsCode;
 
-  get_captcha = function() {
+  getCaptcha = function() {
     return $.ajax({
       url: '/j/captcha',
       method: 'POST',
@@ -12,23 +12,33 @@
     });
   };
 
-  get_sms_code = function() {
+  getSmsCode = function() {
     return $._ajax({
-      url: '/j/captcha',
+      url: '/j/sms_code',
       method: 'POST',
+      data: {
+        token: $('#token').val(),
+        key: $('#key').val(),
+        user_name: $('#user_name').val()
+      },
       success: function(r) {
-        $('#captcha').attr('src', "data:image/gif;base64," + r.img);
-        return $('#key').val(r.key);
+        $('#btn-sms-code').attr('disable', 'true');
+        $('#btn-sms-code').addClass('disabled');
+        return $('#btn-sms-code').val('已发送(60)');
       }
     });
   };
 
   $(document).ready(function() {
-    return get_captcha();
+    return getCaptcha();
   });
 
   $('#captcha').click(function() {
-    return get_captcha();
+    return getCaptcha();
+  });
+
+  $('#btn-sms-code').click(function() {
+    return getSmsCode();
   });
 
 }).call(this);
