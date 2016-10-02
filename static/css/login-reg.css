@@ -144,6 +144,15 @@
     width: 332px;
 }
 
+
+.btn-login-reg:hover,
+.btn-login-reg:focus,
+.btn-login-reg:active,
+.btn-login-reg:hover:active {
+    background-color: #3649b5;
+    color: #fff;
+}
+
 hr {
     margin-top: 30px;
     color: #ccc;

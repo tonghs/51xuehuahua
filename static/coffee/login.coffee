@@ -1,4 +1,4 @@
-$('#btn-login').click ->
+$('form').submit (e)->
     user_name = $("input[name='user_name']").val()
     password = $("input[name='password']").val()
     $._ajax({
@@ -8,3 +8,4 @@ $('#btn-login').click ->
             if r.result
                 window.location.href = '/'
     })
+    e.preventDefault()

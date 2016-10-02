@@ -57,7 +57,7 @@
         password: $('#password').val()
       },
       success: function(r) {
-        return alert(1);
+        return window.locatin.href = '/login';
       }
     });
     return e.preventDefault();

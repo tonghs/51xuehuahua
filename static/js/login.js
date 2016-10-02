@@ -1,9 +1,9 @@
 (function() {
-  $('#btn-login').click(function() {
+  $('form').submit(function(e) {
     var password, user_name;
     user_name = $("input[name='user_name']").val();
     password = $("input[name='password']").val();
-    return $._ajax({
+    $._ajax({
       url: "/j/login",
       data: {
         user_name: user_name,
@@ -15,6 +15,7 @@
         }
       }
     });
+    return e.preventDefault();
   });
 
 }).call(this);

@@ -48,7 +48,7 @@ $('form').submit (e)->
             password: $('#password').val()
         }
         success: (r)->
-            alert 1
+            window.locatin.href='/login'
     })
     e.preventDefault()
 
