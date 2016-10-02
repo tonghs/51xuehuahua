@@ -29,9 +29,11 @@ class Base(Model):
 def init_db():
     from model.user import User
     from model.local_auth import LocalAuth
+    from model.admin import Admin
 
     # 创建表
-    db.create_tables([User, LocalAuth])
+    # db.create_tables([User, LocalAuth])
+    db.create_tables([Admin])
 
 
 def drop_table():

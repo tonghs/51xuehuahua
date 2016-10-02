@@ -6,27 +6,27 @@ import json
 from _base import JsonBaseHandler
 from misc._route import route
 
-from model.user import User
+from model.admin import Admin
 
 
 @route('/j/login')
 class Login(JsonBaseHandler):
     def post(self):
-        user = self.get_argument('username')
-        pwd = self.get_argument('password')
+        user_name = self.get_argument('user_name')
+        password = self.get_argument('password')
 
-        user_ = User.login(user, pwd)
-        if user_:
-            user_dict = dict(
-                user=user,
-                name=user_.name
+        admin = Admin.login(user_name, password)
+        if admin:
+            admin_dict = dict(
+                user_name=user_name,
+                name=admin.name
             )
-            self.set_secure_cookie("user", json.dumps(user_dict))
-            ret = dict(login=True, msg="")
+            self.set_secure_cookie("admin", json.dumps(admin_dict))
+            result = dict(result=True, msg="")
         else:
-            ret = dict(login=False, msg="用户名密码错误")
+            result = dict(result=False, password="用户名密码错误")
 
-        self.finish(ret)
+        self.finish(result)
 
 
 @route('/j/user/reset_pwd')
@@ -40,7 +40,7 @@ class Pwd(JsonBaseHandler):
 
         if pwd and new_pwd and re_pwd:
             if new_pwd == re_pwd:
-                user = User.login(self.current_user.user, pwd)
+                user = Admin.login(self.current_user.user, pwd)
                 if user:
                     user.reset(new_pwd)
                     ret = dict(result=True, msg="修改成功！")
