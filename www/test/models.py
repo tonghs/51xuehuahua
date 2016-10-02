@@ -5,6 +5,7 @@ import _env  # noqa
 # from model._base import drop_table, init_db
 # from model.user import User
 from model.captcha import Captcha
+from model.sms import SMS
 from model.local_auth import LocalAuth
 import hashlib
 
@@ -25,5 +26,10 @@ def test_captcha():
     for i in range(10):
         print Captcha.captcha_new()
 
+
+def test_sms_code():
+    # print SMS.new(18601980445)
+    print SMS.verify(18601980445, '3768')
+
 if __name__ == '__main__':
-    test_captcha()
+    test_sms_code()

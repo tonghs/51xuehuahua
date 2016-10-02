@@ -6,3 +6,4 @@ WTForms
 captchaimage
 Pillow
 redis
+yunpian-sdk-python

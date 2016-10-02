@@ -1,4 +1,4 @@
-#token {
+#token{
     width: 195px;
 }
 
@@ -9,4 +9,19 @@ img#captcha {
     padding-right: 15px;
     margin-bottom: 8px;
     cursor: pointer;
+}
+
+#sms-code {
+    width: 183px;
+}
+
+#btn-sms-code {
+    width: 100px;
+    border: solid 1px #ff7200;
+    color: #ff7200;
+    font-size: 12px;
+    padding: 3px 1px;
+    background-color: #fff;
+    margin-right: 13px;
+    margin-bottom: 8px;
 }
