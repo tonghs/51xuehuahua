@@ -25,7 +25,7 @@ $.extend({
                     option.success(r)
                 else
                     for k, v of r
-                        p = $("##{k}").parent().parent("div.form-group")
+                        p = $("##{k}").parents("div.form-group")
                         p.addClass('err')
 
                         msg = v

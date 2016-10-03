@@ -26,7 +26,7 @@
           } else {
             for (k in r) {
               v = r[k];
-              p = $("#" + k).parent().parent("div.form-group");
+              p = $("#" + k).parents("div.form-group");
               p.addClass('err');
               msg = v;
               if (Array.isArray(v)) {

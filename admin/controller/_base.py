@@ -62,6 +62,9 @@ class BaseHandler(tornado.web.RequestHandler):
     def render(self, **kwargs):
         filename = "{0}.html".format(self._camel_to_underline(self.__class__.__name__))
         filename = "{0}{1}".format(filename[0].lower(), filename[1:])
+        path = '/'.join(self.__module__.split('.')[1: -1])
+        filename = os.path.join(path, filename)
+
         if isinstance(kwargs, dict):
             kwargs.update(STATIC=Static())
             kwargs.update(NAME=NAME)
