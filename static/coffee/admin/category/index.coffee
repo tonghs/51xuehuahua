@@ -61,7 +61,15 @@ $(document).ready ->
             )
         methods: {
             submit: ->
-                console.log this.id
+                $.ajax(
+                    url: '/j/category/edit'
+                    method: 'POST'
+                    data: this.$data
+                    success: (r)->
+                        pager(v_list.page)
+                        $('.edition-modal').modal('hide')
+
+                )
         }
     })
 

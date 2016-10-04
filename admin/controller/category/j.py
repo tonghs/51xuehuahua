@@ -77,7 +77,8 @@ class Edition(AdminJsonBaseHandler):
             try:
                 category = Category.get(Category.id == id)
                 for k, v in self.arguments.iteritems():
-                    setattr(category, k, v)
+                    if hasattr(category, k):
+                        setattr(category, k, v)
 
                 category.save()
 

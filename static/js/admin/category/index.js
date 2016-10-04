@@ -73,7 +73,15 @@
       },
       methods: {
         submit: function() {
-          return console.log(this.id);
+          return $.ajax({
+            url: '/j/category/edit',
+            method: 'POST',
+            data: this.$data,
+            success: function(r) {
+              pager(v_list.page);
+              return $('.edition-modal').modal('hide');
+            }
+          });
         }
       }
     });
