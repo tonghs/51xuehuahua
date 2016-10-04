@@ -1,6 +1,6 @@
 (function() {
   $(document).ready(function() {
-    var pager, v_add, v_list;
+    var pager, v_add, v_edit, v_list;
     v_add = new Vue({
       el: '#addition-form',
       data: {
@@ -42,7 +42,7 @@
     });
     pager = function(page) {
       return $.ajax({
-        url: '/j/category',
+        url: '/j/category/list',
         method: 'GET',
         data: {
           page: page
@@ -52,13 +52,38 @@
         }
       });
     };
+    v_edit = new Vue({
+      el: '#edition-form',
+      data: {
+        id: 0,
+        name: '',
+        parent: 0,
+        top_category: []
+      },
+      ready: function() {
+        var self;
+        self = this;
+        return $.ajax({
+          url: '/j/category/top',
+          method: 'GET',
+          success: function(r) {
+            return self.top_category = r.li;
+          }
+        });
+      },
+      methods: {
+        submit: function() {
+          return console.log(this.id);
+        }
+      }
+    });
     return v_list = new Vue({
       el: '#category-list',
       data: {
         li: [],
         count: 0,
         total_page: 0,
-        page: 0
+        page: 1
       },
       methods: {
         pager: function(page) {
@@ -69,6 +94,32 @@
         },
         prev: function() {
           return pager(--this.page);
+        },
+        edit: function(id) {
+          return $.ajax({
+            url: '/j/category',
+            method: 'GET',
+            data: {
+              id: id
+            },
+            success: function(r) {
+              v_edit.id = r.id;
+              v_edit.name = r.name;
+              return v_edit.parent = r.parent;
+            }
+          });
+        },
+        rm: function(id) {
+          return $._ajax({
+            url: '/j/category/rm',
+            method: 'POST',
+            data: {
+              id: id
+            },
+            success: function(r) {
+              return pager(this.page);
+            }
+          });
         }
       },
       ready: function() {

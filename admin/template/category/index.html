@@ -28,54 +28,7 @@
                             <i class="fa fa-plus"></i> 新增分类
                         </button>
 
-                        <!-- add modal -->
-                        <div class="modal fade addition-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-                            <div class="modal-dialog modal-lg" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">×</span>
-                                        </button>
-                                        <h4 class="modal-title" id="myLargeModalLabel">新增课程分类</h4>
-                                    </div> 
-                                    <div class="modal-body">
-                                        <div class="row">
-                                            <!-- left column -->
-                                            <div class="col-md-12">
-                                                <!-- general form elements -->
-                                                <!-- form start -->
-                                                <form role="form" id="addition-form" v-on:submit.prevent="submit">
-                                                    <div class="box-body">
-                                                        <div class="form-group">
-                                                            <label for="name">分类名称</label>
-                                                            <input type="text" class="form-control" id="name" v-model="name" placeholder="分类名称">
-                                                            <span class="error-msg"> </span>
-                                                        </div>
-                                                        <!-- select -->
-                                                        <div class="form-group">
-                                                            <label>父级分类</label>
-                                                            <select class="form-control" id="parent" v-model="parent">
-                                                                <option value="0">无父级</option>
-                                                                <option value="{{o.id}}" v-for="o in top_category">{{o.name}}</option>
-                                                            </select>
-                                                            <span class="error-msg"> </span>
-                                                        </div>
-                                                    </div>
-                                                    <!-- /.box-body -->
-
-                                                    <div class="box-footer">
-                                                        <button type="submit" class="btn btn-primary">提交</button>
-                                                        <button type="reset" class="btn btn-default">清空</button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                            <!--/.col (left) -->
-                                        </div>
-                                        <!-- /.row -->
-                                </div> 
-                            </div>
-                        </div>
-                        <!-- /add modal -->
+                        <%include file="index_ops.html"/>
 
                     </div>
                     <!-- /.box-header -->
@@ -94,16 +47,16 @@
                                     <td>{{o.parent_}}</td>
                                     <td>
 										<div class="btn-group">
-											<button type="button" class="btn btn-success">编辑</button>
+											<button type="button" class="btn btn-success" v-on:click="edit(o.id)" data-toggle="modal" data-target=".edition-modal">编辑</button>
 											<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 												<span class="caret"></span>
 												<span class="sr-only">Toggle Dropdown</span>
 											</button>
 											<ul class="dropdown-menu" role="menu">
-												<li><a href="#">编辑</a></li>
-												<li><a href="#">删除</a></li>
+												<li><a href="javascript: void(0);" v-on:click="edit(o.id)" data-toggle="modal" data-target=".edition-modal">编辑</a></li>
+												<li><a href="javascript: void(0);" v-on:click="rm(o.id)">删除</a></li>
 												<li class="divider"></li>
-												<li><a href="#">该分类下课程</a></li>
+                                                <li><a href="/course?category={{o.id}}" target="_blank">该分类下课程</a></li>
 											</ul>
 										</div>
                                     </td>

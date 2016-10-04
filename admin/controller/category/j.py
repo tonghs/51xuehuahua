@@ -12,19 +12,17 @@ from model.category import Category
 @route('/j/category')
 class CategoryHandler(AdminJsonBaseHandler):
     def get(self):
-        page = self.get_argument('page', '1')
-        if page.isdigit():
-            page = int(page)
+        id = self.get_argument('id', 0)
+        category = dict()
 
-        limit = self.get_argument('limit', 20)
+        if id:
+            try:
+                category = Category.get(Category.id == id)
+                category = category.to_dict()
+            except Category.DoesNotExist:
+                category = dict()
 
-        li, count, total_page = Category.list(page, limit)
-        li = [o.to_dict(extra_attrs=['parent_']) for o in li]
-        print li
-
-        self.finish(dict(li=li, count=count,
-                         total_page=total_page,
-                         page=page, limit=limit))
+        self.finish(category)
 
     def post(self):
         form = Category.Form(**self.arguments)
@@ -43,6 +41,23 @@ class CategoryHandler(AdminJsonBaseHandler):
         self.finish(result)
 
 
+@route('/j/category/list')
+class CategoryListHandler(AdminJsonBaseHandler):
+    def get(self):
+        page = self.get_argument('page', '1')
+        if page.isdigit():
+            page = int(page)
+
+        limit = self.get_argument('limit', 20)
+
+        li, count, total_page = Category.list(page, limit)
+        li = [o.to_dict(extra_attrs=['parent_']) for o in li]
+
+        self.finish(dict(li=li, count=count,
+                         total_page=total_page,
+                         page=page, limit=limit))
+
+
 @route('/j/category/top')
 class Top(AdminJsonBaseHandler):
     def get(self):
@@ -50,3 +65,43 @@ class Top(AdminJsonBaseHandler):
         li = [o.to_dict() for o in li]
 
         self.finish(dict(li=li))
+
+
+@route('/j/category/edit')
+class Edition(AdminJsonBaseHandler):
+    def post(self):
+        id = self.get_argument('id', 0)
+        result = dict(result=False)
+
+        if id:
+            try:
+                category = Category.get(Category.id == id)
+                for k, v in self.arguments.iteritems():
+                    setattr(category, k, v)
+
+                category.save()
+
+            except Category.DoesNotExist:
+                result = dict(result=False)
+            else:
+                result = dict(result=True)
+
+        self.finish(result)
+
+
+@route('/j/catagory/rm')
+class _(AdminJsonBaseHandler):
+    def post(self):
+        id = self.get_argument('id', 0)
+        result = dict(result=False)
+
+        if id:
+            try:
+                category = Category.get(Category.id == id)
+                category.delete_instance()
+            except Category.DoesNotExist:
+                result = dict(result=False)
+            else:
+                result = dict(result=True)
+
+        self.finish(result)
