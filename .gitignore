@@ -8,6 +8,7 @@ __pycache__/
 *.csv
 .*.swp
 config.py
+pub_config.py
 gulpfile.js
 node_modules
 static/dist
