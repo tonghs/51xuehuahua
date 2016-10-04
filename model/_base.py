@@ -30,10 +30,12 @@ def init_db():
     from model.user import User
     from model.local_auth import LocalAuth
     from model.admin import Admin
+    from model.category import Category
 
     # 创建表
-    db.create_tables([User, LocalAuth])
-    db.create_tables([Admin])
+    # db.create_tables([User, LocalAuth])
+    # db.create_tables([Admin])
+    db.create_tables([Category])
 
 
 def drop_table():

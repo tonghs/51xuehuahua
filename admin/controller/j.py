@@ -3,14 +3,14 @@
 
 import json
 
-from _base import JsonBaseHandler
+from _base import AdminJsonBaseHandler
 from misc._route import route
 
 from model.admin import Admin
 
 
 @route('/j/login')
-class Login(JsonBaseHandler):
+class Login(AdminJsonBaseHandler):
     def post(self):
         user_name = self.get_argument('user_name')
         password = self.get_argument('password')
@@ -30,7 +30,7 @@ class Login(JsonBaseHandler):
 
 
 @route('/j/user/reset_pwd')
-class Pwd(JsonBaseHandler):
+class Pwd(AdminJsonBaseHandler):
     def post(self):
         pwd = self.get_argument('pwd')
         new_pwd = self.get_argument('new_pwd')

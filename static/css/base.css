@@ -85,9 +85,10 @@ a:hover{
     color: #333;
 }
 
-.form-group.err .input {
-    background-image: url(http://oc06pejhd.bkt.clouddn.com/input-err.png);
+.form-group.err input {
+    border: solid 1px red;
 }
+
 
 .error-msg {
     display: none;

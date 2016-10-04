@@ -31,10 +31,3 @@ def test_local_auth():
 
 if __name__ == '__main__':
     init_db()
-
-    data = dict(
-        name='admin',
-        user_name="admin",
-        password=hashlib.md5('admin').hexdigest(),
-    )
-    Admin.create(**data)

@@ -190,3 +190,12 @@ hr {
 .glyphicon {
     color: #ccc;
 }
+
+
+.form-group.err .input {
+    background-image: url(http://oc06pejhd.bkt.clouddn.com/input-err.png);
+}
+
+.form-group.err input {
+    border: 0;
+}
