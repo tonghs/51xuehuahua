@@ -48,10 +48,7 @@
           page: page
         },
         success: function(r) {
-          v_list.li = r.li;
-          v_list.count = r.count;
-          v_list.page = r.page;
-          return v_list.total_page = r.total_page;
+          return v_list.$data = r;
         }
       });
     };

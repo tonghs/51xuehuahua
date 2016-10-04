@@ -83,21 +83,36 @@
                         <div class="box-body">
                             <table class="table table-bordered">
                                 <tr>
-                                    <th style="width: 10px">#</th>
+                                    <th>ID</th>
                                     <th>分类名称</th>
                                     <th>父级分类</th>
-                                    <th>操作</th>
+                                    <th style="width: 135px;">操作</th>
                                 </tr>
                                 <tr v-for="o in li">
-                                    <td>{{$index}}</td>
+                                    <td>{{o.id}}</td>
                                     <td>{{o.name}}</td>
-                                    <td>{{o.parent}}</td>
-                                    <td></td>
+                                    <td>{{o.parent_}}</td>
+                                    <td>
+										<div class="btn-group">
+											<button type="button" class="btn btn-success">编辑</button>
+											<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+												<span class="caret"></span>
+												<span class="sr-only">Toggle Dropdown</span>
+											</button>
+											<ul class="dropdown-menu" role="menu">
+												<li><a href="#">编辑</a></li>
+												<li><a href="#">删除</a></li>
+												<li class="divider"></li>
+												<li><a href="#">该分类下课程</a></li>
+											</ul>
+										</div>
+                                    </td>
                                 </tr>
                             </table>
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer clearfix">
+                            显示 {{(page - 1) * limit + 1}} - {{page * limit}} 条， 共 {{count}} 条
                             <ul class="pagination pagination-sm no-margin pull-right">
                                 <li class="disabled" v-if="page == 1">
                                     <a href="javascript: void(0);">&laquo;</a>

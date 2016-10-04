@@ -16,14 +16,15 @@ class CategoryHandler(AdminJsonBaseHandler):
         if page.isdigit():
             page = int(page)
 
-        limit = self.get_argument('limit', 2)
+        limit = self.get_argument('limit', 20)
 
         li, count, total_page = Category.list(page, limit)
-        li = [o.to_dict() for o in li]
+        li = [o.to_dict(extra_attrs=['parent_']) for o in li]
+        print li
 
         self.finish(dict(li=li, count=count,
                          total_page=total_page,
-                         page=page))
+                         page=page, limit=limit))
 
     def post(self):
         form = Category.Form(**self.arguments)

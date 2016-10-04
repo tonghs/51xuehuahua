@@ -33,3 +33,7 @@ class Category(Base):
             page = total_page
 
         return cls.select().order_by(cls.created_time.desc()).paginate(page, limit), count, total_page
+
+    @property
+    def parent_(self):
+        return '' if self.parent == 0 else self.get(Category.id == self.parent).name

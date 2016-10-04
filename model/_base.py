@@ -15,8 +15,8 @@ redis = redis_.StrictRedis(host=REDIS.HOST, port=REDIS.PORT, db=REDIS.DB)
 
 class Base(Model):
 
-    def to_dict(self):
-        return model_to_dict(self)
+    def to_dict(self, **kwargs):
+        return model_to_dict(self, **kwargs)
 
     @classmethod
     def from_dict(cls, d):

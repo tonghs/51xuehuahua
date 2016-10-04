@@ -40,10 +40,7 @@ $(document).ready ->
             method: 'GET'
             data: {page: page}
             success: (r)->
-                v_list.li = r.li
-                v_list.count = r.count
-                v_list.page = r.page
-                v_list.total_page = r.total_page
+                v_list.$data = r
         )
 
     v_list = new Vue({
