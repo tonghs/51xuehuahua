@@ -16,6 +16,8 @@ class MYSQL:
     DB = 'db_name'
 
 class REDIS:
-    HOST = 'localhost',
-    PORT = 6379,
+    HOST = 'xxx'
+    PORT = 0000 
     DB = 0
+
+SMS_API_KEY = 'xxx'

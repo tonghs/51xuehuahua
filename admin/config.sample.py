@@ -14,3 +14,10 @@ class MYSQL:
     USER = 'root'
     PWD = 'pwd'
     DB = 'db_name'
+
+class REDIS:
+    HOST = 'xxx'
+    PORT = 0000 
+    DB = 0
+
+SMS_API_KEY = 'xxx'
