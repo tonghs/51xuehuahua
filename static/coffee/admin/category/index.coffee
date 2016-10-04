@@ -28,7 +28,7 @@ $(document).ready ->
                             url: '/j/category/top'
                             method: 'GET'
                             success: (r)->
-                                v_add.top_category = r.li
+                                pager(v_list.page)
                         )
                 )
         }
@@ -41,6 +41,8 @@ $(document).ready ->
             data: {page: page}
             success: (r)->
                 v_list.$data = r
+                v_add.top_category = r.li
+                v_edit.top_category = r.li
         )
 
     v_edit = new Vue({
@@ -105,12 +107,21 @@ $(document).ready ->
                 )
 
             rm: (id)->
-                $._ajax(
-                    url: '/j/category/rm'
-                    method: 'POST'
-                    data: {id: id}
-                    success: (r)->
-                        pager(this.page)
+                BootstrapDialog.confirm(
+                    title: '确认'
+                    message: '确定删除吗？'
+                    type: BootstrapDialog.TYPE_WARNING
+                    btnCancelLabel: '取消'
+                    btnOKLabel: '确定'
+                    callback: (result)->
+                        if result
+                            $._ajax(
+                                url: '/j/category/rm'
+                                method: 'POST'
+                                data: {id: id}
+                                success: (r)->
+                                    pager(this.page)
+                            )
                 )
 
         }

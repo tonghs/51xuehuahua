@@ -90,7 +90,7 @@ class Edition(AdminJsonBaseHandler):
         self.finish(result)
 
 
-@route('/j/catagory/rm')
+@route('/j/category/rm')
 class _(AdminJsonBaseHandler):
     def post(self):
         id = self.get_argument('id', 0)

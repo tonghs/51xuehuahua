@@ -32,7 +32,7 @@
                 url: '/j/category/top',
                 method: 'GET',
                 success: function(r) {
-                  return v_add.top_category = r.li;
+                  return pager(v_list.page);
                 }
               });
             }
@@ -48,7 +48,9 @@
           page: page
         },
         success: function(r) {
-          return v_list.$data = r;
+          v_list.$data = r;
+          v_add.top_category = r.li;
+          return v_edit.top_category = r.li;
         }
       });
     };
@@ -118,14 +120,25 @@
           });
         },
         rm: function(id) {
-          return $._ajax({
-            url: '/j/category/rm',
-            method: 'POST',
-            data: {
-              id: id
-            },
-            success: function(r) {
-              return pager(this.page);
+          return BootstrapDialog.confirm({
+            title: '确认',
+            message: '确定删除吗？',
+            type: BootstrapDialog.TYPE_WARNING,
+            btnCancelLabel: '取消',
+            btnOKLabel: '确定',
+            callback: function(result) {
+              if (result) {
+                return $._ajax({
+                  url: '/j/category/rm',
+                  method: 'POST',
+                  data: {
+                    id: id
+                  },
+                  success: function(r) {
+                    return pager(this.page);
+                  }
+                });
+              }
             }
           });
         }
