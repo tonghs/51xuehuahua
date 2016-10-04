@@ -9,7 +9,7 @@ import mako.template
 import tornado.web
 from tornado.escape import json_encode
 
-from config import STATIC_HOST, APP, DEBUG, NAME
+from www.config import STATIC_HOST, APP, DEBUG, NAME
 from model.user import User
 from model._base import db
 

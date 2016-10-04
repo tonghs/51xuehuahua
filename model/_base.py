@@ -4,7 +4,7 @@
 import _env  # noqa
 import redis as redis_
 
-from config import MYSQL, REDIS
+from pub_config import MYSQL, REDIS
 from peewee import Model, MySQLDatabase
 
 from playhouse.shortcuts import model_to_dict, dict_to_model
@@ -32,7 +32,7 @@ def init_db():
     from model.admin import Admin
 
     # 创建表
-    # db.create_tables([User, LocalAuth])
+    db.create_tables([User, LocalAuth])
     db.create_tables([Admin])
 
 

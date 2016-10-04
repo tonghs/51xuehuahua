@@ -3,7 +3,7 @@
 
 import sys
 import random
-from config import SMS_API_KEY
+from pub_config import SMS_API_KEY
 from yunpian.SmsOperator import SmsOperator
 from model._base import redis, R
 from form.sms import SMSForm

@@ -4,6 +4,7 @@
 import _env  # noqa
 from model._base import drop_table, init_db
 from model.user import User
+from model.admin import Admin
 from model.captcha import Captcha
 from model.sms import SMS
 from model.local_auth import LocalAuth
@@ -13,13 +14,6 @@ import hashlib
 def main():
     drop_table()
     init_db()
-
-    # data = dict(
-    #     user_id=1,
-    #     user_name="tonghs",
-    #     password=hashlib.md5('admin').hexdigest(),
-    # )
-    # LocalAuth.create(**data)
 
 
 def test_captcha():
@@ -36,4 +30,11 @@ def test_local_auth():
     LocalAuth.create(user_id=1, user_name=18848588586, password='ataa')
 
 if __name__ == '__main__':
-    test_local_auth()
+    init_db()
+
+    data = dict(
+        name='admin',
+        user_name="admin",
+        password=hashlib.md5('admin').hexdigest(),
+    )
+    Admin.create(**data)

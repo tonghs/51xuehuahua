@@ -29,6 +29,8 @@
 3. 进入代码目录，安装网站运行依赖
 
 	```
+    sudo chmod +x apt.sh
+    sudo ./apt.sh
     sudo pip install -r requirements.txt
 	```
 

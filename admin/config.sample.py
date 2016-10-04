@@ -4,20 +4,7 @@
 DEBUG = True
 APP = 'StoryBoard'
 PORT = 8888
+NAME = '无忧学画画后台'
 STATIC_HOST = 'http://192.168.1.123:8889'
 HOST = 'http://192.168.1.123'
 COOKIE_SECRET = '0532ba8942499cdef558f8da355093ce'
-
-
-class MYSQL:
-    HOST = 'localhost'
-    USER = 'root'
-    PWD = 'pwd'
-    DB = 'db_name'
-
-class REDIS:
-    HOST = 'xxx'
-    PORT = 0000 
-    DB = 0
-
-SMS_API_KEY = 'xxx'
