@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import _env # noqa
+import _env  # noqa
 import os
 import json
 import mako.lookup
@@ -101,7 +101,7 @@ class AdminHandler(BaseHandler):
             super(AdminHandler, self).prepare()
 
 
-class JsonBaseHandler(tornado.web.RequestHandler):
+class AdminJsonBaseHandler(tornado.web.RequestHandler):
     def get_current_user(self):
         j = self.get_secure_cookie("admin")
         return User.from_dict(json.loads(j)) if j else None
@@ -112,7 +112,7 @@ class JsonBaseHandler(tornado.web.RequestHandler):
                 data = json_encode(data)
 
             self.set_header('Content-Type', 'application/json; charset=UTF-8')
-        super(JsonBaseHandler, self).finish(data)
+        super(AdminJsonBaseHandler, self).finish(data)
 
     @property
     def arguments(self):
