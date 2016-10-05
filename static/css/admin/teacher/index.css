@@ -1,0 +1,15 @@
+#avatar-preview {
+    background-image: url('http://oc06pejhd.bkt.clouddn.com/default_avatar.png');
+    background-repeat: no-repeat;
+    background-size: 128px;
+    background-position: center;
+    height: 128px;
+    width: 128px;
+    margin: 20px 0;
+    border-radius: 128px;
+    border: solid 1px #ccc;
+}
+
+.progress {
+    display: none;
+}

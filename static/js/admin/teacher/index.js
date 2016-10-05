@@ -1,19 +1,36 @@
 (function() {
   $(document).ready(function() {
-    return $(".select2").select2();
-  });
-
-  $.upload({
-    browse_button: 'btn-upload',
-    BeforeUpload: function(up, file) {},
-    UploadProgress: function(up, file) {
-      console.log(file);
-      return console.log(up);
-    },
-    FileUploaded: function(up, file, info, url) {
-      console.log(info);
-      return console.log(url);
-    }
+    var v_add;
+    $(".select2").select2();
+    return v_add = new Vue({
+      el: '#addition-form',
+      data: {
+        avatar: '',
+        name: '',
+        method: '',
+        category: '',
+        desc: ''
+      },
+      ready: function() {
+        return $.upload({
+          browse_button: 'btn-upload',
+          BeforeUpload: function(up, file) {
+            return $('.progress').fadeIn();
+          },
+          UploadProgress: function(up, file) {
+            var percent;
+            percent = file.percent;
+            $('#progress-bar').css('width', percent + "%");
+            return $('#progress-bar').attr('aria-valuenow', percent);
+          },
+          FileUploaded: function(up, file, info, url) {
+            $('.progress').fadeOut();
+            $("#avatar-preview").css('background-image', "url('" + url + "')");
+            return v_add.avatar = info.key;
+          }
+        });
+      }
+    });
   });
 
 }).call(this);

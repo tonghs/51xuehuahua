@@ -80,6 +80,7 @@ $.extend({
 
 				'BeforeUpload': (up, file)->
 					# 每个文件上传前,处理相关的事情
+					option.BeforeUpload(up, file)
 
 				'UploadProgress': (up, file)->
 					option.UploadProgress(up, file)
@@ -89,17 +90,7 @@ $.extend({
 					domain = up.getOption('domain')
 					res = $.parseJSON(info)
 					url = domain + res.key  # 获取上传成功后的文件的Url
-
-					option.FileUploaded(up, file, info, url)
-					
-					#  每个文件上传成功后,处理相关的事情
-					#  其中 info 是文件上传成功后，服务端返回的json，形式如
-					#  {
-				#         "hash": "Fh8xVqod2MQ1mocfI4S4KpRL6D98",
-					#     "key": "gogopher.jpg"
-					#   }
-					#  参考http://developer.qiniu.com/docs/v6/api/overview/up/response/simple-response.html
-
+					option.FileUploaded(up, file, res, url)
 
 				'Error': (up, err, errTip)->
 					# 上传出错时,处理相关的事情

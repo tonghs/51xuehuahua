@@ -82,7 +82,9 @@
           'FilesAdded': function(up, files) {
             return plupload.each(files, function(file) {});
           },
-          'BeforeUpload': function(up, file) {},
+          'BeforeUpload': function(up, file) {
+            return option.BeforeUpload(up, file);
+          },
           'UploadProgress': function(up, file) {
             return option.UploadProgress(up, file);
           },
@@ -91,7 +93,7 @@
             domain = up.getOption('domain');
             res = $.parseJSON(info);
             url = domain + res.key;
-            return option.FileUploaded(up, file, info, url);
+            return option.FileUploaded(up, file, res, url);
           },
           'Error': function(up, err, errTip) {},
           'UploadComplete': function() {}
