@@ -89,6 +89,10 @@ a:hover{
     border: solid 1px red;
 }
 
+.form-group.err textarea{
+    border: solid 1px red;
+}
+
 
 .error-msg {
     display: none;

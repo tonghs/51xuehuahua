@@ -31,17 +31,18 @@
 									</button>
 
                                     <input type="hidden" id="avatar">
-                                    <p class="help-block">推荐分辨率 256*256px</p>
 
                                     <div class="progress progress-sm active">
                                         <div class="progress-bar progress-bar-success progress-bar-striped" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
                                             ## <span class="sr-only">20% Complete</span>
                                         </div>
                                     </div>
+                                    <br>
                                     <span class="error-msg"> </span>
                                 </div>
 
                                 <div class="form-group">
+                                    <br>
                                     <label for="name">讲师姓名</label>
                                     <input type="text" class="form-control" id="name" v-model="name" placeholder="讲师姓名">
                                     <span class="error-msg"> </span>
@@ -49,16 +50,16 @@
 
                                 <!-- checkbox -->
                                 <div class="form-group">
-                                    <label for="name">教学方式</label>
-                                    <div class="checkbox">
+                                    <label for="name">授课方式</label>
+                                    <div id="method">
                                         % for k, v in TEACH_METHOD_CN.iteritems():
                                         <label>
                                             <input type="checkbox" value="${k}" v-model="method">
                                             ${v} &nbsp;&nbsp;&nbsp;
                                         </label>
                                         % endfor
-                                        <span class="error-msg"> </span>
                                     </div>
+                                    <span class="error-msg"> </span>
                                 </div>
 
                                 <div class="form-group">
@@ -75,7 +76,7 @@
                                 <!-- textarea -->
                                 <div class="form-group">
                                     <label>讲师介绍</label>
-                                    <textarea class="form-control" rows="3" id="desc" placeholder="请输入讲师介绍，不多于256字。"></textarea>
+                                    <textarea class="form-control" rows="3" id="desc" placeholder="请输入讲师介绍，不多于256字。" v-model="desc"></textarea>
                                     <span class="error-msg"> </span>
                                 </div>
                             </div>

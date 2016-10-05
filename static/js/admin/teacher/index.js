@@ -12,7 +12,6 @@
       },
       ready: function() {
         $(".select2").select2().on('change', function() {
-          console.log('aaa');
           return v_add.category = $('#category').val();
         });
         return $.upload({
@@ -35,7 +34,14 @@
       },
       methods: {
         submit: function() {
-          return console.log(this.$data);
+          return $._ajax({
+            url: '/j/teacher',
+            method: 'POST',
+            data: JSON.stringify(this.$data),
+            success: function() {
+              return console.log('ok');
+            }
+          });
         }
       }
     });

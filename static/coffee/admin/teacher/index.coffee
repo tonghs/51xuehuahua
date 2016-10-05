@@ -10,7 +10,6 @@ $(document).ready ->
         }
         ready: ->
             $(".select2").select2().on('change', ->
-                console.log 'aaa'
                 v_add.category = $('#category').val()
             )
             $.upload({
@@ -32,7 +31,13 @@ $(document).ready ->
             })
         methods: {
             submit: ->
-                console.log this.$data
+                $._ajax(
+                    url: '/j/teacher'
+                    method: 'POST'
+                    data: JSON.stringify(this.$data)
+                    success: ->
+                        console.log 'ok'
+                )
 
         }
     })

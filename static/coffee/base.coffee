@@ -33,6 +33,8 @@ $.extend({
                         msg = v
                         if Array.isArray(v)
                             msg = v[0]
+                            if Array.isArray(v[0])
+                                msg = v[0][0]
                         p.children('.error-msg').html(msg)
 
                     if option.fail
