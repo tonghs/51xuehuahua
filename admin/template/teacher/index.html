@@ -1,9 +1,9 @@
 <%inherit file="../_base.html"/>
 <%block name="title">
-类型列表 - 
+授课讲师 - 
 </%block>
 <%block name="css">
-    <link rel="stylesheet" href="${STATIC.css('category/index.css')}">
+    <link rel="stylesheet" href="${STATIC.css('teacher/index.css')}">
 </%block>
 
 <!-- Content Wrapper. Contains page content -->
@@ -12,7 +12,7 @@
     <section class="content-header">
         <ol class="breadcrumb">
             <li><a href="/"><i class="fa fa-dashboard"></i> 主页</a></li>
-            <li class="active">课程类型</li>
+            <li class="active">授课讲师</li>
         </ol>
     </section>
 
@@ -22,9 +22,9 @@
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">课程类型</h3>
+                        <h3 class="box-title">授课讲师</h3>
                         <button class="btn btn-sm btn-primary admin-btn-add" data-toggle="modal" data-target=".addition-modal">
-                            <i class="fa fa-plus"></i> 新增类型
+                            <i class="fa fa-plus"></i> 新增讲师
                         </button>
 
                         <%include file="index_ops.html"/>
@@ -36,22 +36,27 @@
                             <table class="table table-bordered">
                                 <tr>
                                     <th>ID</th>
-                                    <th>类型名称</th>
-                                    <th>父级类型</th>
+                                    <th>头像</th>
+                                    <th>姓名</th>
+                                    <th>领域</th>
+                                    <th>授课类型</th>
                                     <th style="width: 135px;">操作</th>
                                 </tr>
                                 <tr v-for="o in li">
+                                    <td>{{o.id}}</td>
+                                    <td>{{o.id}}</td>
                                     <td>{{o.id}}</td>
                                     <td>{{o.name}}</td>
                                     <td>{{o.parent_}}</td>
                                     <td>
 										<div class="btn-group">
-											<button type="button" class="btn btn-success" v-on:click="edit(o.id)" data-toggle="modal" data-target=".edition-modal">编辑</button>
+											<button type="button" class="btn btn-success" v-on:click="edit(o.id)" data-toggle="modal" data-target=".edition-modal">查看简介</button>
 											<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 												<span class="caret"></span>
 												<span class="sr-only">Toggle Dropdown</span>
 											</button>
 											<ul class="dropdown-menu" role="menu">
+												<li><a href="#" v-on:click="edit(o.id)" data-toggle="modal" data-target=".edition-modal">查看简介</a></li>
 												<li><a href="#" v-on:click="edit(o.id)" data-toggle="modal" data-target=".edition-modal">编辑</a></li>
 												<li><a href="#" v-on:click="rm(o.id)">删除</a></li>
 												<li v-if="o.parent == 0"><a href="#" data-toggle="modal" data-target=".addition-modal" v-on:click="add_sub(o.id)">添加子类型</a></li>
@@ -96,5 +101,5 @@
 </div>
 <!-- /.content-wrapper -->
 <%block name="js">
-    <script src="${STATIC.js('category/index.js')}"></script>
+    <script src="${STATIC.js('teacher/index.js')}"></script>
 </%block>

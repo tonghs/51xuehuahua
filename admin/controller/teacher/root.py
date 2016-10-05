@@ -5,8 +5,11 @@ import _env  # noqa
 from controller._base import AdminHandler
 from misc._route import route
 
+from model.category import Category
 
-@route('/category')
+
+@route('/teacher')
 class Index(AdminHandler):
     def get(self):
-        self.render()
+        category = Category.sub()
+        self.render(category=category)

@@ -3,5 +3,3 @@
 
 import root
 import j
-import category._url
-import teacher._url

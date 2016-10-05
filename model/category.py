@@ -21,6 +21,10 @@ class Category(Base):
         return cls.select().where(cls.parent == 0).order_by(cls.created_time.desc())
 
     @classmethod
+    def sub(cls):
+        return cls.select().where(cls.parent != 0).order_by(cls.created_time.desc())
+
+    @classmethod
     def list(cls, page=1, limit=20):
         count = cls.select().count()
         page = 1 if page < 1 else page

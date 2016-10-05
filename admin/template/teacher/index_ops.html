@@ -1,3 +1,6 @@
+<%!
+    from model.teach_method import TEACH_METHOD_CN
+%>
 <!-- addition modal -->
 <div class="modal fade addition-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
     <div class="modal-dialog modal-lg" role="document">
@@ -6,7 +9,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
-                <h4 class="modal-title" id="myLargeModalLabel">新增课程类型</h4>
+                <h4 class="modal-title" id="myLargeModalLabel">新增授课讲师</h4>
             </div> 
             <div class="modal-body">
                 <div class="row">
@@ -17,18 +20,46 @@
                         <form role="form" id="addition-form" v-on:submit.prevent="submit">
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label for="name">类型名称</label>
-                                    <input type="text" class="form-control" id="name" v-model="name" placeholder="类型名称">
+                                    <label for="exampleInputFile">头像</label>
+                                    <input type="file" id="avatar">
+                                    <p class="help-block">推荐分辨率 512*512px</p>
                                     <span class="error-msg"> </span>
                                 </div>
-                                <!-- select -->
+
                                 <div class="form-group">
-                                    <label>父级类型</label>
-                                    <select class="form-control" id="parent" v-model="parent">
-                                        <option value="0">无父级</option>
-                                        <option value="{{o.id}}" v-for="o in top_category">{{o.name}}</option>
-                                    </select>
+                                    <label for="name">讲师姓名</label>
+                                    <input type="text" class="form-control" id="name" v-model="name" placeholder="讲师姓名">
                                     <span class="error-msg"> </span>
+                                </div>
+
+                                <!-- checkbox -->
+                                <div class="form-group">
+                                    <label for="name">教学方式</label>
+                                    <div class="checkbox">
+                                        % for k, v in TEACH_METHOD_CN.iteritems():
+                                        <label>
+                                            <input type="checkbox" value="${k}" v-model="method">
+                                            ${v} &nbsp;&nbsp;&nbsp;
+                                        </label>
+                                        % endfor
+                                        <span class="error-msg"> </span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>擅长领域</label>
+                                    <select class="form-control select2" multiple="multiple" v-model="category" id="category" data-placeholder="选择领域" style="width: 100%;">
+                                        % for o in category:
+                                        <option value="${o.id}">${o.name}</option>
+                                        % endfor
+                                    </select>
+                                </div>
+                                <!-- /.form-group -->
+
+                                <!-- textarea -->
+                                <div class="form-group">
+                                    <label>讲师介绍</label>
+                                    <textarea class="form-control" rows="3" id="desc" placeholder="请输入讲师介绍，不多于256字。"></textarea>
                                 </div>
                             </div>
                             <!-- /.box-body -->
