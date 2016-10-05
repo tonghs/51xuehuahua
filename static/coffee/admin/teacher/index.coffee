@@ -48,3 +48,25 @@ $(document).ready ->
         }
     })
 
+    pager = (page)->
+        $.ajax(
+            url: '/j/teacher/list'
+            method: 'GET'
+            data: {'page': page}
+            success: (r)->
+                v_list.$data = r
+
+        )
+
+    v_list = new Vue({
+        el: '#teacher-list'
+        data: {
+            li: []
+            page: 1
+            total_page: 0
+            count: 0
+        }
+        ready: ->
+            pager(this.page)
+    })
+

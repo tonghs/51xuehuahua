@@ -19,5 +19,6 @@ class QINIU:
     BUCKET = ''
     ACCESS_KEY = ''
     SECRET_KEY = ''
+    HOST = ''
 
 SMS_API_KEY = 'xxx'

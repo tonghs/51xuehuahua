@@ -31,12 +31,13 @@
 
                     </div>
                     <!-- /.box-header -->
-                    <div id="category-list">
+
+                    <div id="teacher-list">
                         <div class="box-body">
                             <table class="table table-bordered">
                                 <tr>
                                     <th>ID</th>
-                                    <th>头像</th>
+                                    <th style="width: 50px;">头像</th>
                                     <th>姓名</th>
                                     <th>领域</th>
                                     <th>授课类型</th>
@@ -44,14 +45,18 @@
                                 </tr>
                                 <tr v-for="o in li">
                                     <td>{{o.id}}</td>
-                                    <td>{{o.id}}</td>
-                                    <td>{{o.id}}</td>
+                                    <td style="padding: 6px 5px;">
+                                        <div data-toggle="tooltip" data-placement="right" data-html="true" title="<img style='margin: 5px 0;' src='{{o.avatar_}}?imageMogr2/thumbnail/128x'>" class="avatar" v-bind:style='"background-image: url(" + o.avatar_ + "?imageMogr2/thumbnail/64x)"'>
+                                            &nbsp;
+                                        </div>
+                                    </td>
                                     <td>{{o.name}}</td>
-                                    <td>{{o.parent_}}</td>
+                                    <td>{{o.category}}</td>
+                                    <td>{{o.method}}</td>
                                     <td>
 										<div class="btn-group">
-											<button type="button" class="btn btn-success" v-on:click="edit(o.id)" data-toggle="modal" data-target=".edition-modal">查看简介</button>
-											<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+											<button type="button" class="btn btn-xs btn-success" v-on:click="edit(o.id)" data-toggle="modal" data-target=".edition-modal">查看简介</button>
+											<button type="button" class="btn btn-xs btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 												<span class="caret"></span>
 												<span class="sr-only">Toggle Dropdown</span>
 											</button>

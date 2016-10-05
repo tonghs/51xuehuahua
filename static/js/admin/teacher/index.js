@@ -1,7 +1,7 @@
 (function() {
   $(document).ready(function() {
-    var v_add;
-    return v_add = new Vue({
+    var pager, v_add, v_list;
+    v_add = new Vue({
       el: '#addition-form',
       data: {
         avatar: '',
@@ -49,6 +49,30 @@
             }
           });
         }
+      }
+    });
+    pager = function(page) {
+      return $.ajax({
+        url: '/j/teacher/list',
+        method: 'GET',
+        data: {
+          'page': page
+        },
+        success: function(r) {
+          return v_list.$data = r;
+        }
+      });
+    };
+    return v_list = new Vue({
+      el: '#teacher-list',
+      data: {
+        li: [],
+        page: 1,
+        total_page: 0,
+        count: 0
+      },
+      ready: function() {
+        return pager(this.page);
       }
     });
   });
