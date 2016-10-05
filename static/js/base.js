@@ -64,26 +64,37 @@
         browse_button: browse_button,
         uptoken_url: '/j/qiniu_token',
         domain: 'http://oc06pejhd.bkt.clouddn.com/',
-        get_new_uptoken: false,
         max_file_size: '100mb',
         max_retries: 3,
         dragdrop: true,
+        save_key: true,
         chunk_size: '4mb',
         auto_start: true,
+        filters: {
+          mime_types: [
+            option.mime_types || {
+              title: "图片文件",
+              extensions: "jpg,gif,png,bmp,jpeg"
+            }
+          ]
+        },
         init: {
           'FilesAdded': function(up, files) {
             return plupload.each(files, function(file) {});
           },
           'BeforeUpload': function(up, file) {},
-          'UploadProgress': function(up, file) {},
-          'FileUploaded': function(up, file, info) {},
+          'UploadProgress': function(up, file) {
+            return option.UploadProgress(up, file);
+          },
+          'FileUploaded': function(up, file, info) {
+            var domain, res, url;
+            domain = up.getOption('domain');
+            res = $.parseJSON(info);
+            url = domain + res.key;
+            return option.FileUploaded(up, file, info, url);
+          },
           'Error': function(up, err, errTip) {},
-          'UploadComplete': function() {},
-          'Key': function(up, file) {
-            var key;
-            key = "";
-            return key;
-          }
+          'UploadComplete': function() {}
         }
       });
     }

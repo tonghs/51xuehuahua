@@ -7,7 +7,10 @@ $(document).ready ->
 		BeforeUpload: (up, file)->
 			
 		UploadProgress: (up, file)->
+			console.log file
+			console.log up
 
-		FileUploaded: (up, file, info)->
-			
+		FileUploaded: (up, file, info, url)->
+			console.log info
+			console.log url
 	})

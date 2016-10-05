@@ -60,4 +60,11 @@ class Pwd(AdminJsonBaseHandler):
 @route('/j/qiniu_token')
 class QiniuToken(AdminJsonBaseHandler):
     def get(self):
-        self.finish(dict(uptoken=QINIU_TOKEN.new(saveKey=str(R.gid()))))
+        self.finish(dict(uptoken=QINIU_TOKEN.new(
+            returnBody="""{
+                "key":$(key),
+                "w": $(imageInfo.width),
+                "h": $(imageInfo.height),
+                "fn": $(fname)
+            }""",
+            saveKey=str(R.gid()))))

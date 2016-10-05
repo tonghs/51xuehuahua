@@ -6,8 +6,14 @@
   $.upload({
     browse_button: 'btn-upload',
     BeforeUpload: function(up, file) {},
-    UploadProgress: function(up, file) {},
-    FileUploaded: function(up, file, info) {}
+    UploadProgress: function(up, file) {
+      console.log(file);
+      return console.log(up);
+    },
+    FileUploaded: function(up, file, info, url) {
+      console.log(info);
+      return console.log(url);
+    }
   });
 
 }).call(this);
