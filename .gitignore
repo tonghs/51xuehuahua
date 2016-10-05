@@ -12,7 +12,7 @@ pub_config.py
 gulpfile.js
 node_modules
 static/dist
-nginx.conf
+misc/confg/nginx.conf
 supervisor.conf
 
 # Distribution / packaging
