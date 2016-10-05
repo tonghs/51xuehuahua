@@ -20,8 +20,15 @@
                         <form role="form" id="addition-form" v-on:submit.prevent="submit">
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label for="exampleInputFile">头像</label>
-                                    <input type="file" id="avatar">
+                                    <label for="avatar">头像</label>
+									<br>
+									## <button class='btn btn-default' id="btn-upload">
+									<button class='btn btn-default'>
+										<i class="fa fa-plus-square-o"></i>
+										上传头像
+									</button>
+
+                                    <input type="hidden" id="avatar">
                                     <p class="help-block">推荐分辨率 512*512px</p>
                                     <span class="error-msg"> </span>
                                 </div>

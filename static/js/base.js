@@ -55,6 +55,37 @@
           }
         }
       });
+    },
+    upload: function(option) {
+      var browse_button, uploader;
+      browse_button = option.browse_button;
+      return uploader = Qiniu.uploader({
+        runtimes: 'html5,flash,html4',
+        browse_button: browse_button,
+        uptoken_url: '/j/qiniu_token',
+        domain: 'http://oc06pejhd.bkt.clouddn.com/',
+        get_new_uptoken: false,
+        max_file_size: '100mb',
+        max_retries: 3,
+        dragdrop: true,
+        chunk_size: '4mb',
+        auto_start: true,
+        init: {
+          'FilesAdded': function(up, files) {
+            return plupload.each(files, function(file) {});
+          },
+          'BeforeUpload': function(up, file) {},
+          'UploadProgress': function(up, file) {},
+          'FileUploaded': function(up, file, info) {},
+          'Error': function(up, err, errTip) {},
+          'UploadComplete': function() {},
+          'Key': function(up, file) {
+            var key;
+            key = "";
+            return key;
+          }
+        }
+      });
     }
   });
 

@@ -55,4 +55,8 @@ class RedisUtil(object):
 
         return _get_key
 
+    def gid(self):
+        R_GID = R.GID()
+        return redis.incr(R_GID)
+
 R = RedisUtil()

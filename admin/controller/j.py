@@ -7,6 +7,8 @@ from _base import AdminJsonBaseHandler
 from misc._route import route
 
 from model.admin import Admin
+from model.qiniu import QINIU_TOKEN
+from model._base import R
 
 
 @route('/j/login')
@@ -53,3 +55,9 @@ class Pwd(AdminJsonBaseHandler):
             ret = dict(result=False, msg="全部为必填项不可为空！")
 
         self.finish(ret)
+
+
+@route('/j/qiniu_token')
+class QiniuToken(AdminJsonBaseHandler):
+    def get(self):
+        self.finish(dict(uptoken=QINIU_TOKEN.new(saveKey=str(R.gid()))))
