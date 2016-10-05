@@ -1,17 +1,20 @@
 (function() {
   $(document).ready(function() {
     var v_add;
-    $(".select2").select2();
     return v_add = new Vue({
       el: '#addition-form',
       data: {
         avatar: '',
         name: '',
-        method: '',
-        category: '',
+        method: [],
+        category: [],
         desc: ''
       },
       ready: function() {
+        $(".select2").select2().on('change', function() {
+          console.log('aaa');
+          return v_add.category = $('#category').val();
+        });
         return $.upload({
           browse_button: 'btn-upload',
           BeforeUpload: function(up, file) {
@@ -29,6 +32,11 @@
             return v_add.avatar = info.key;
           }
         });
+      },
+      methods: {
+        submit: function() {
+          return console.log(this.$data);
+        }
       }
     });
   });

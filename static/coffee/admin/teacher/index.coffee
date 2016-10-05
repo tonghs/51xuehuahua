@@ -1,16 +1,18 @@
 $(document).ready ->
-    $(".select2").select2()
-
     v_add = new Vue({
         el: '#addition-form'
         data: {
             avatar: ''
             name: ''
-            method: ''
-            category: ''
+            method: []
+            category: []
             desc: ''
         }
         ready: ->
+            $(".select2").select2().on('change', ->
+                console.log 'aaa'
+                v_add.category = $('#category').val()
+            )
             $.upload({
                 browse_button: 'btn-upload'
 
@@ -28,5 +30,10 @@ $(document).ready ->
                     $("#avatar-preview").css('background-image', "url('#{url}')")
                     v_add.avatar = info.key
             })
+        methods: {
+            submit: ->
+                console.log this.$data
+
+        }
     })
 
