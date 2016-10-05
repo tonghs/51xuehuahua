@@ -39,7 +39,13 @@
             method: 'POST',
             data: JSON.stringify(this.$data),
             success: function() {
-              return console.log('ok');
+              v_add.avatar = '';
+              v_add.name = '';
+              v_add.method = [];
+              v_add.category = [];
+              v_add.desc = '';
+              $('.addition-modal').modal('hide');
+              return $(".select2").val([]).trigger("change");
             }
           });
         }

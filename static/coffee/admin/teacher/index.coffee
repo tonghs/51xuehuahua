@@ -36,7 +36,13 @@ $(document).ready ->
                     method: 'POST'
                     data: JSON.stringify(this.$data)
                     success: ->
-                        console.log 'ok'
+                        v_add.avatar = ''
+                        v_add.name = ''
+                        v_add.method = []
+                        v_add.category = []
+                        v_add.desc = ''
+                        $('.addition-modal').modal('hide')
+                        $(".select2").val([]).trigger("change")
                 )
 
         }

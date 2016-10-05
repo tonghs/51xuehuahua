@@ -31,11 +31,13 @@ def init_db():
     from model.local_auth import LocalAuth
     from model.admin import Admin
     from model.category import Category
+    from model.teacher import Teacher, TeacherMethod, TeacherCategory
 
     # 创建表
-    db.create_tables([User, LocalAuth])
-    db.create_tables([Admin])
-    db.create_tables([Category])
+    # db.create_tables([User, LocalAuth])
+    # db.create_tables([Admin])
+    # db.create_tables([Category])
+    db.create_tables([Teacher, TeacherMethod, TeacherCategory])
 
 
 def drop_table():
