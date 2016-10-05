@@ -31,3 +31,5 @@ def test_local_auth():
 
 if __name__ == '__main__':
     init_db()
+    Admin.create(name='tonghs', user_name='admin',
+                 password=hashlib.md5('admin').hexdigest())

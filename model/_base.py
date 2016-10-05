@@ -33,8 +33,8 @@ def init_db():
     from model.category import Category
 
     # 创建表
-    # db.create_tables([User, LocalAuth])
-    # db.create_tables([Admin])
+    db.create_tables([User, LocalAuth])
+    db.create_tables([Admin])
     db.create_tables([Category])
 
 
