@@ -11,6 +11,8 @@
       return $('#msg').html(msg);
     },
     _ajax: function(option) {
+      var target;
+      target = option.target;
       return $.ajax({
         method: option.method,
         url: option.url,
@@ -22,7 +24,7 @@
             return $(this).removeClass('err');
           });
           if (r.result) {
-            return option.success(r);
+            option.success(r);
           } else {
             for (k in r) {
               v = r[k];
@@ -35,13 +37,21 @@
               p.children('.error-msg').html(msg);
             }
             if (option.fail) {
-              return option.fail();
+              option.fail();
             }
+          }
+          if (target) {
+            target.attr('disabled', '');
+            return target.removeClass('disabled');
           }
         },
         fail: function() {
           if (option.fail) {
-            return option.fail();
+            option.fail();
+          }
+          if (target) {
+            target.attr('disabled', '');
+            return target.removeClass('disabled');
           }
         }
       });

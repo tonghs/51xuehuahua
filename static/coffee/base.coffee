@@ -12,6 +12,8 @@ $.extend({
         $('#msg').html(msg)
 
     _ajax: (option)->
+        target = option.target
+
         $.ajax({
             method: option.method,
             url: option.url,
@@ -36,9 +38,17 @@ $.extend({
                     if option.fail
                         option.fail()
 
+                if target
+                    target.attr('disabled', '')
+                    target.removeClass('disabled')
+
             fail: ->
                 if option.fail
                     option.fail()
+
+                if target
+                    target.attr('disabled', '')
+                    target.removeClass('disabled')
         })
 })
 

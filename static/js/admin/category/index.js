@@ -20,7 +20,7 @@
         });
       },
       methods: {
-        submit: function() {
+        submit: function(e) {
           return $._ajax({
             url: '/j/category',
             data: this.$data,
@@ -75,7 +75,7 @@
       },
       methods: {
         submit: function() {
-          return $.ajax({
+          return $._ajax({
             url: '/j/category/edit',
             method: 'POST',
             data: this.$data,

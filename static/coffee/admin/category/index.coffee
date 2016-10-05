@@ -15,7 +15,7 @@ $(document).ready ->
                     self.top_category = r.li
             )
         methods: {
-            submit: ->
+            submit: (e)->
                 $._ajax(
                     url: '/j/category'
                     data: this.$data
@@ -63,7 +63,7 @@ $(document).ready ->
             )
         methods: {
             submit: ->
-                $.ajax(
+                $._ajax(
                     url: '/j/category/edit'
                     method: 'POST'
                     data: this.$data
