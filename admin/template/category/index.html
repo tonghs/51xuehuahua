@@ -55,6 +55,7 @@
 											<ul class="dropdown-menu" role="menu">
 												<li><a href="#" v-on:click="edit(o.id)" data-toggle="modal" data-target=".edition-modal">编辑</a></li>
 												<li><a href="#" v-on:click="rm(o.id)">删除</a></li>
+												<li v-if="o.parent == 0"><a href="#" data-toggle="modal" data-target=".addition-modal" v-on:click="add_sub(o.id)">添加子类</a></li>
 												<li class="divider"></li>
                                                 <li><a href="/course?category={{o.id}}" target="_blank">该分类下课程</a></li>
 											</ul>

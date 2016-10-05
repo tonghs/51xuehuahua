@@ -105,6 +105,9 @@
         prev: function() {
           return pager(--this.page);
         },
+        add_sub: function(id) {
+          return v_add.parent = id;
+        },
         edit: function(id) {
           return $.ajax({
             url: '/j/category',

@@ -93,6 +93,9 @@ $(document).ready ->
 
             prev: ->
                 pager(--this.page)
+
+            add_sub: (id)->
+                v_add.parent = id
             
             edit: (id)->
                 $.ajax(
